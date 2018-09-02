@@ -118,6 +118,14 @@ body {
     border: 3px solid black !important;   
 }
 
+/*FAQ*/
+.imagenesfaq{
+    width: 5%;
+}
+.faqpar{
+    color: #9EB82D; 
+}
+
 /* Media Queries */
 
 @media(min-width: 768px) {
