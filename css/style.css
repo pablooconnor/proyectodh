@@ -109,11 +109,12 @@ body {
     text-align: justify;
 }
 
-.about article{
+.about article p{
     width: 95%;
     border-radius: 10px;
     margin: 15px 0;
     padding: 0 0;
+    text-align: center;
 }
 
 .about article img{
@@ -122,6 +123,42 @@ body {
     border-radius: 50%;
 }
 
+/* Footer */
+
+.footer{
+    display: flex;
+    justify-content: center;
+    background-color: #9EB82D;
+    width: 80%;
+    flex-wrap: wrap;
+    color: white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    margin: 0 auto;
+    padding: 10px 0;
+}
+
+.footerNav{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    padding-bottom: 10px;
+}
+
+.footerNav a{
+    text-decoration: none;
+    text-align: center;
+    color: white;
+    width: 25%;
+    display: block;
+    font-size: 3.5vw;
+    padding: 10px 0;
+}
+
+.footer p{
+    font-size: 2vw;
+}
 /*TESTSSSSS*/
 
 .bordeTest{
