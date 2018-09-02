@@ -25,6 +25,11 @@ body {
     color: #9EB82D;
 }
 
+.header-content a{
+    text-decoration: none;
+    color: #9EB82D;
+}
+
 .header-background{
     width: 200%;
 }
@@ -96,6 +101,12 @@ body {
     display: block;
     font-size: 10vw;
     width: 100%;
+}
+
+.about p{
+    display: block;
+    width: 90%;
+    text-align: justify;
 }
 
 .about article{
