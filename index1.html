@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Panu 01</title>
+     <link href="css/estilo.css" rel="stylesheet"/>
+    
+</head>
+<body>
+  <div class="container">
+
+  <form action="script.php" method="POST">
+
+      
+          <header class="main-header">
+            <h1 class= "titulo">Registrate</h1>
+      <img src="images/pets.png" alt="pets" class="imagen1">
+         </header> 
+        <div class="contenedor-flex">
+          <div class="labels">
+          
+            <label class="etiqueta" >Nombre y Apellido</label> 
+            <input type= "text" name= "Nombre" placeholder="Nombre Apellido"required>
+
+            <label class"etiqueta">Correo Electronico</label>
+            <input type="text" name="Correo Electronico"placeholder="user@email.com">
+
+            <label class="etiqueta">Pais</label>
+            <select class="etiqueta1" name="Pais">
+                <option class="etiqueta1" value="Argentina">Argentina</option>
+                <option class="etiqueta1"value="Bolivia">Bolivia</option>
+                <option  class="etiqueta1"value="Brasil">Brasil</option>
+                <option class= "etiqueta1"value="Chile">Chile</option>
+                <option class="etiqueta1"value="uruguay">Uruguay</option>
+            </select>
+
+            <label class="etiqueta">Direccion</label>
+            <input type= "Direccion"  required>
+            <label class="etiqueta">contraseña</label>
+            <input type="password"required autocomplete="off"/>
+            <label class="etiqueta">confirmar contraseña</label>
+            <input type="password"required autocomplete="off"/>
+            
+            <div class="boton">
+                <button class="boton1" type="submit">Enviar</button>
+                <button class="boton1" type="reset">Borrar</button>
+                
+            </div>
+          </div>
+        
+  </form> 
+  </div>
+   
+</body>
+</html>
