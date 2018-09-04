@@ -213,7 +213,12 @@ body {
     border-top-right-radius: 10px;
     margin: 0 auto;
     padding: 10px 0;
+    padding-top: 35px;
 }
+.h2faq{
+    font-size: 2.5em;
+    text-align: center;
+    padding-top: 35px;
 
 /* Formulario */
 
