@@ -7,58 +7,69 @@
     <title>Panu - Mascotas, alimentos y accesorios.</title>
     <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://unpkg.com/ionicons@4.4.2/dist/css/ionicons.min.css" rel="stylesheet">
 </head>
 <body>
     <div class="main">
         <header>
             <div class="header-container">
-                <div class="header-content">
-                    <a href="index.html">
+                <a href="index.html" class="header-content">
+                    <!-- <a href="index.html"> -->
                         <img class="header-logo" src="images/logo.png" alt="Logo">
-                        <h1>Panu</h1>
-                        <h2>Mascotas, alimentos y accesorios</h2>
-                    </a>
+                        <div class="header-title">
+                            <h1>Panu</h1>
+                            <h2>Tu portal de adopción</h2>
+                        </div>
+                </a>
                 </div>
                 <img class="header-background" src="images/pets.png" alt="">
-                    <div class="navigation">
-                        <a href="login.html">Iniciar sesion</a>
-                        <a href="formulario.html">Registro</a>
-                        <a href="faq.html">F.A.Q.</a>
-                    </div>
+                <nav class="navigation">
+                    <a href="login.html">Iniciar sesion</a>
+                    <a href="form2.html">Registro</a>
+                    <a href="faq.html">F.A.Q.</a>
                 </nav>
             </div>
         </header>
         <main>
             <section class="about">
-                <h2>¿Quienes somos?</h2>
-                <p>Somos un grupo de personas que amamos los animales, y es por eso que creamos un sitio donde cualquier persona puede adoptar una mascota desde la comodidad de su dispositivo. También queremos colaborar con la gente que ha perdido o encontrado una mascota, con la idea de facilitar y acortar el tiempo de reencuentro entre el animal y su dueño. A su vez, también creamos un portal para que la gente pueda comprar sus accesorios y alimentos para sus mascotas de una manera practica y fácil.</p>
+                <div class="card">
+                    <h2>¿Quienes somos?</h2>
+                    <p>Somos un grupo de personas que amamos los animales y queremos colaborar con la gente que ha perdido o encontrado una mascota, con la idea de facilitar y acortar el tiempo de reencuentro entre el animal y su dueño.</p>
+                </div>
                 <article>
                     <img src="images/adopcionLogo.png" alt="">
-                    <p>Adopte su mascota desde la comodidad de su hogar. Podes ver sus fotos y donde se encuentra en adopción.</p>
+                    <p>Adoptá tu mascota desde la comodidad de tu hogar. Podes ver fotos y donde se encuentra en adopción tu proxima mascota.</p>
                 </article>
                 <article>
                     <img src="images/feedLogo.png" alt="">
-                    <p>Ayude a reencontrar una mascota con su dueño o sea ayudado por una comunidad para encontrar su mascota perdida de una manera mas rápida y eficaz.</p>
+                    <p>Ayudá a reencontrar una mascota con su dueño o se ayudado por una comunidad para encontrar tu mascota perdida de una manera mas rápida y eficaz.</p>
                 </article>
                 <article>
-                    <img src="images/comidaLogo.png" alt="">
-                    <p>Encuentre todo tipo de alimentos para sus distintas mascotas y recíbalo en su hogar.</p>
+                    <img src="images/casaLogo.png" alt="">
+                    <p>¿Encontraste una mascota y no podes tenerla? Encontrá gente que haga tránsito hasta que puedan ubicarlo con su dueño o en un hogar fijo luego de ser adoptado.</p>
                 </article>
                 <article>
-                    <img src="images/insumosLogo.png" alt="">
-                    <p>¿Necesita una correa o un juguete para su mascota? No hay problema, encuentre en nuestro e-shop una variedad de productos y accesorios para ellas, y recíbalo en su hogar.</p>
+                    <img src="images/botellaLogo.png" alt="">
+                    <p>¿Te vas de vacaciones y no tenes donde dejar tu mascota? Encontrá gente que la cuide de la misma forma que vos</p>
                 </article>
             </section>
         </main>    
         <footer class="footer">
-            <div class="footerNav">
-                <a href="index.html">Inicio</a>
-                <a href="login.html">Iniciar sesión</a>
-                <a href="formulario.html">Registrarse</a>
-                <a href="faq.html">F.A.Q</a>
-            </div>
+            <ul class="footerNav">
+                <li><a href="index.html"><i class="icon ion-md-arrow-dropright-circle"></i> Inicio</i></a></li>
+                <li><a href="login.html"><i class="icon ion-md-arrow-dropright-circle"></i> Iniciar sesión</a></li>
+                <li><a href="formulario.html"><i class="icon ion-md-arrow-dropright-circle"></i> Registrarse</a></li>
+                <li><a href="faq.html"><i class="icon ion-md-arrow-dropright-circle"></i> F.A.Q</a></li>
+            </ul>
+            <ul class="footerInfo">
+                <li><a href="mailto:info@panu.com.ar"><i class="icon ion-md-mail"></i> info@panu.com.ar</a></li>
+                <li><a href="tel:+541147434734"><i class="icon ion-md-call"></i> +54 11 4743-4734</a></li>
+                <li><a href="https://vignette.wikia.nocookie.net/simpsons/images/6/65/800px-742_Evergreen_Terrace.png/revision/latest?cb=20170101225756"><i class="icon ion-md-pin"></i> Av. Siempreviva 742,<br>Springfield</a></li>
+            </ul>
             <p>Copyright © Todos los Derechos Reservados</p>
         </footer>
     </div>
 </body>
 </html>
+
+<ion-icon name="arrow-dropright-circle"></ion-icon>
