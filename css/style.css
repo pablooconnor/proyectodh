@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    transition:all 0.5s ease;
 }
 
 body {
@@ -247,6 +248,10 @@ body {
     width: 90%;
     margin: 0 auto;
     max-width: 648px;
+}
+
+input[type="text"], input[type="email"], option, select{
+    font-family: 'Indie Flower', cursive;
 }
 
 .selection{

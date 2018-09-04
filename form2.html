@@ -9,21 +9,22 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="container">
+    <div class="main">
         <header>
             <div class="header-container">
-                <div class="header-content">
-                    <a href="index.html">                                <img class="header-logo" src="images/logo.png" alt="Logo">
+                <a href="index.html" class="header-content">
+                    <img class="header-logo" src="images/logo.png" alt="Logo">
+                    <div class="header-title">
                         <h1>Panu</h1>
-                        <h2>Registrate</h2>
-                    </a>
+                        <h2>Tu portal de adopción</h2>
+                    </div>
+                </a>
                 </div>
                 <img class="header-background" src="images/pets.png" alt="">
-                    <div class="navigation">
-                        <a href="index.html">Inicio</a>
-                        <a href="login.html">Iniciar sesión</a>
-                        <a href="faq.html">F.A.Q.</a>
-                    </div>
+                <nav class="navigation">
+                    <a href="login.html">Iniciar sesion</a>
+                    <a href="form2.html">Registro</a>
+                    <a href="faq.html">F.A.Q.</a>
                 </nav>
             </div>
         </header>
@@ -50,7 +51,7 @@
                     </select>
 
                     <label class="label">Dirección</label>
-                    <input class="textfield" type= "Direccion"  required>
+                    <input class="textfield" type= "text"  required>
                     <label class="label">Contraseña</label>
                     <input class="textfield" type="password" required autocomplete="off"/>
                     <label class="label">Confirmar contraseña</label>
@@ -64,14 +65,19 @@
             </form> 
         </main>
         <footer class="footer">
-            <div class="footerNav">
-                <a href="index.html">Inicio</a>
-                <a href="login.html">Iniciar sesión</a>
-                <a href="formulario.html">Registrarse</a>
-                <a href="faq.html">F.A.Q</a>
-            </div>
+            <ul class="footerNav">
+                <li><a href="index.html"><i class="icon ion-md-arrow-dropright-circle"></i> Inicio</i></a></li>
+                <li><a href="login.html"><i class="icon ion-md-arrow-dropright-circle"></i> Iniciar sesión</a></li>
+                <li><a href="formulario.html"><i class="icon ion-md-arrow-dropright-circle"></i> Registrarse</a></li>
+                <li><a href="faq.html"><i class="icon ion-md-arrow-dropright-circle"></i> F.A.Q</a></li>
+            </ul>
+            <ul class="footerInfo">
+                <li><a href="mailto:info@panu.com.ar"><i class="icon ion-md-mail"></i> info@panu.com.ar</a></li>
+                <li><a href="tel:+541147434734"><i class="icon ion-md-call"></i> +54 11 4743-4734</a></li>
+                <li><a href="https://vignette.wikia.nocookie.net/simpsons/images/6/65/800px-742_Evergreen_Terrace.png/revision/latest?cb=20170101225756"><i class="icon ion-md-pin"></i> Av. Siempreviva 742,<br>Springfield</a></li>
+            </ul>
             <p>Copyright © Todos los Derechos Reservados</p>
-        </footer>  
+        </footer> 
     </div> 
 </body>
 </html>
