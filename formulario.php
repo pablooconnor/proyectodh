@@ -10,29 +10,12 @@
 </head>
 <body>
     <div class="main">
-        <header>
-            <div class="header-container">
-                <a href="index.html" class="header-content">
-                    <img class="header-logo" src="images/logo.png" alt="Logo">
-                    <div class="header-title">
-                        <h1>Panu</h1>
-                        <h2>Tu portal de adopción</h2>
-                    </div>
-                </a>
-                </div>
-                <img class="header-background" src="images/pets.png" alt="">
-                <nav class="navigation">
-                    <a href="login.html">Iniciar sesion</a>
-                    <a href="form2.html">Registro</a>
-                    <a href="faq.html">F.A.Q.</a>
-                </nav>
-            </div>
-        </header>
+        <?php include_once('header.php');?>
         <main>
             <form class="form" action="" method="get">
                 <h2>Crear cuenta</h2>
                 <h3>Completá los campos con tus datos para crear una cuenta en Panu!</h3>
-                <h3>Ya tienes cuenta? <a href="login.html">Iniciar sesión.</a></h3>
+                <h3>Ya tienes cuenta? <a href="login.php">Iniciar sesión.</a></h3>
                 <div class="form-flex">  
                     <label class="label" >Nombre y apellido</label> 
                     <input class="textfield" type="text" name= "nombre" placeholder="Nombre Apellido" required>
@@ -64,20 +47,7 @@
                 </div>
             </form> 
         </main>
-        <footer class="footer">
-            <ul class="footerNav">
-                <li><a href="index.html"><i class="icon ion-md-arrow-dropright-circle"></i> Inicio</i></a></li>
-                <li><a href="login.html"><i class="icon ion-md-arrow-dropright-circle"></i> Iniciar sesión</a></li>
-                <li><a href="formulario.html"><i class="icon ion-md-arrow-dropright-circle"></i> Registrarse</a></li>
-                <li><a href="faq.html"><i class="icon ion-md-arrow-dropright-circle"></i> F.A.Q</a></li>
-            </ul>
-            <ul class="footerInfo">
-                <li><a href="mailto:info@panu.com.ar"><i class="icon ion-md-mail"></i> info@panu.com.ar</a></li>
-                <li><a href="tel:+541147434734"><i class="icon ion-md-call"></i> +54 11 4743-4734</a></li>
-                <li><a href="https://vignette.wikia.nocookie.net/simpsons/images/6/65/800px-742_Evergreen_Terrace.png/revision/latest?cb=20170101225756"><i class="icon ion-md-pin"></i> Av. Siempreviva 742,<br>Springfield</a></li>
-            </ul>
-            <p>Copyright © Todos los Derechos Reservados</p>
-        </footer> 
+        <?php include_once('footer.php')?>
     </div> 
 </body>
 </html>
