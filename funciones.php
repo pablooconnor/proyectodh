@@ -176,9 +176,32 @@ function dbEmailSearch($email)
 
 
 
+function login($user)
+{
+    $_SESSION['username'] = $user['username'];
+    setcookie('username', $user['username'], time() + 3600 * 24 * 7, "/");
+    $_SESSION['email'] = $user['email'];
+    setcookie('email', $user['email'], time() + 3600 * 24 * 7, "/");
+}
+
+function logout()
+{
+    if(!isset($_SESSION)) {
+        session_start();
+    }
+    session_destroy();
+    setcookie('email', null, time() -1);
+    redirect('register.php');
+
+}
 
 
 
+
+
+
+
+ 
 
 
 

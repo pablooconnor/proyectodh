@@ -1,4 +1,23 @@
-<!DOCTYPE html>
+<?php
+require 'funciones.php';
+if(check()) {
+    redirect('perfil.php');
+}
+    
+    }
+     if($_POST) {
+        $usuario = dbEmailSearch($_POST['email']);
+        if($usuario !== null) {
+            if(password_verify($_POST['password'], $usuario['password']) == true) {
+                login($usuario);
+        
+                redirect('perfil.php');
+            } 
+        }
+        
+?>
+
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -14,7 +33,7 @@
     <div class="main">
         <?php include_once('header.php')?>
         <main>
-        <form class="form" action="">
+        <form class="form" action="" method="post">
             <h2>Inicia sesion</h2>
             
                 <div class="form-flex">
