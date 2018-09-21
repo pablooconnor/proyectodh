@@ -185,13 +185,13 @@ function login($user)
 }
 
 function logout()
-{
-    if(!isset($_SESSION)) {
-        session_start();
+{ 
+    if (!isset $_SESSION()){
+        session session_start
     }
     session_destroy();
     setcookie('email', null, time() -1);
-    redirect('register.php');
+    redirect('index.php');
 
 }
 

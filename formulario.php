@@ -29,7 +29,7 @@ if($_POST) {
         //y redirigime a Login (NUNCA directo al perfil)
         redirect('login.php');
     }
-}
+
    
 ?>
 
