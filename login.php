@@ -1,19 +1,21 @@
 <?php
+
 require 'funciones.php';
+
 if(check()) {
     redirect('perfil.php');
 }
-    
+
+if($_POST) {
+    $usuario = dbEmailSearch($_POST['email']);
+    if($usuario !== null) {
+        if(password_verify($_POST['password'], $usuario['password']) == true) {
+            login($usuario);
+
+            redirect('perfil.php');
+        } 
     }
-     if($_POST) {
-        $usuario = dbEmailSearch($_POST['email']);
-        if($usuario !== null) {
-            if(password_verify($_POST['password'], $usuario['password']) == true) {
-                login($usuario);
-        
-                redirect('perfil.php');
-            } 
-        }
+}
         
 ?>
 
@@ -37,11 +39,11 @@ if(check()) {
             <h2>Inicia sesion</h2>
             
                 <div class="form-flex">
-                  <label class="lable" ><b>Usuario</b></label>
-                  <input class="textfield"  placeholder="Ingresar Usuario" name="uname" required>
+                  <label class="lable" ><b>Email</b></label>
+                  <input class="textfield"  placeholder="Ingresar Usuario" name="email" required>
               
                   <label class="lable"><b>Contraseña</b></label>
-                  <input class="textfield" type="password" placeholder="Ingresar Contraseña" name="psw" required>
+                  <input class="textfield" type="password" placeholder="Ingresar Contraseña" name="password" required>
 
                   <div class="button-container">
                   <button type="submit">Iniciar sesión</button>

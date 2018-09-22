@@ -35,7 +35,7 @@ function validate($data)
     
     if($password == "") {
         $errors['password'] = "Por favor completar la contraseña";
-    } elseif($password < 4) {
+    } elseif(strlen($password) < 4) {
         $errors['password'] = "La contraseña debe ser de al menos 4 caracteres!";
     }
 
@@ -147,6 +147,7 @@ function dbConnect()
 {
     $db = file_get_contents('users.json');
     $arr = explode(PHP_EOL, $db);
+
     array_pop($arr);
 
     foreach($arr as $user) {
@@ -186,8 +187,8 @@ function login($user)
 
 function logout()
 { 
-    if (!isset $_SESSION()){
-        session session_start
+    if (!isset($_SESSION)){
+        session_start();
     }
     session_destroy();
     setcookie('email', null, time() -1);
