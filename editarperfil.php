@@ -1,10 +1,6 @@
 <?php
 require 'funciones.php';
 
-if(check()) {
-    redirect('perfil.php'); // hay que crearlo
-}
-
 if($_POST) {
     // A la variable $errors asignale lo que de como resultado la funcion validate() que procese $_POST
     $errors = validate($_POST);
@@ -40,8 +36,8 @@ if($_POST) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Panu - Registrarse</title>
-    <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
-    <link rel="stylesheet" href="css/formulario.css">
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+    <link rel="stylesheet" href="css/editarperfil.css">
     <link rel="stylesheet" href="css/header-footer.css">
 </head>
 <body>
@@ -49,9 +45,7 @@ if($_POST) {
         <?php include_once('header.php');?>
         <main>
             <form class="form" action="" method="post" enctype="multipart/form-data">
-                <h2>Crear cuenta</h2>
-                <h3>Completá los campos con tus datos para crear una cuenta en Panu!</h3>
-                <h3>Ya tienes cuenta? <a href="login.php">Iniciar sesión.</a></h3>
+                <h2>Editar perfil</h2>
                 <div class="form-flex">  
                     <label class="label" >Nombre y apellido</label> 
                     <input class="textfield" type="text" name= "username" value="<?=isset($errors['username']) ? "" : old('username'); ?>" placeholder="Nombre Apellido" >
@@ -135,6 +129,7 @@ if($_POST) {
                     <input class="textfield" type="password" name="cpassword"  />
 
                     <br>
+
                     <input type="checkbox" name="confirm" value="">
                     <label for="confirm">Acepto los terminos y condiciones.</label>
 
