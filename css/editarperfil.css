@@ -1,0 +1,90 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition:all 0.5s ease;
+}
+
+body {
+    font-family: 'Indie Flower', cursive;
+}
+
+/* Formulario */
+
+.form{
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.form h2{
+    font-size: 1.5em;
+}
+
+.form h3{
+    font-size: 0.9em;
+}
+
+.form h4{
+    font-size: 0.8em;
+}
+
+.form-flex{
+    display: flex;
+    flex-direction: column;
+    background-color:#9EB82D;
+    color: white;
+    font-size: 1.3em;
+    border-radius: 10px;
+    box-shadow: 2px 2px 3px rgba(70, 70, 70, 0.678);
+    text-shadow: 0px 0px 5px rgba(70, 70, 70, 0.678);
+    align-items: center;
+    text-align: center;
+    width: 90%;
+    margin: 0 auto;
+    max-width: 648px;
+}
+
+input[type="text"], input[type="email"], option, select{
+    font-family: 'Indie Flower', cursive;
+}
+
+.selection{
+    font-size: 0.8em;
+    width: 80%;
+}
+
+.label{
+    margin-top: 15px;
+    margin-bottom: 3px;
+}
+
+.textfield{
+    display: flex;
+    font-size: 20px;
+    background-color:whitesmoke;
+    align-items: flex-start;
+    width: 80%;
+}
+
+.button-container{
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+    text-transform: uppercase;
+}
+
+.button-container button{
+    color:white;
+    font-family: 'Indie Flower', cursive;
+    font-size: 1em;
+    text-transform: uppercase;
+    background-color: #9EB82D;
+    border: 2px solid white;
+    border-radius: 10px;
+    box-shadow: 1px 1px 3px rgba(70, 70, 70, 0.678);
+    text-shadow: 0px 0px 5px rgba(70, 70, 70, 0.678);
+    margin-top: 20px;
+    padding: 5px 10px 3px 10px;
+    margin: 10px 0;
+    text-align: end;
+}
