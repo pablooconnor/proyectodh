@@ -7,13 +7,17 @@ if(check()) {
 }
 
 if($_POST) {
-    $usuario = dbEmailSearch($_POST['email']);
-    if($usuario !== null) {
-        if(password_verify($_POST['password'], $usuario['password']) == true) {
-            login($usuario);
+    $email = dbEmailSearch($_POST['email']);
+    if($email !== null) {
+        if(password_verify($_POST['password'], $email['password']) == true) {
+            login($email);
 
             redirect('perfil.php');
+        } else {
+            $passwordErorr = true;
         } 
+    } else {
+        $emailError = true;
     }
 }
         
@@ -37,10 +41,18 @@ if($_POST) {
                 <div class="form-flex">
                     <label class="label" ><b>Email</b></label>
                     <input class="textfield"  placeholder="Ingresar email" value="<?php if(isset($_COOKIE["email"])) { echo $_COOKIE["email"]; } ?>" name="email" required>
-                
+                    <?php if(isset($emailError)): ?>
+                        <div class="alert alert-danger">
+                            <strong><?="Este email no esta asociado a una cuenta, "; ?><a href="formulario.php?email=<?=$_POST["email"]?>">registrese con este correo.</a></strong>
+                        </div>
+                    <?php endif;?>
                     <label class="label"><b>Contraseña</b></label>
                     <input class="textfield" type="password" placeholder="Ingresar Contraseña" name="password" required>
-
+                    <?php if(isset($passwordErorr)): ?>
+                        <div class="alert alert-danger">
+                            <strong><?="Contraseña incorrecta, si la olvido "; ?><a href="#">recupere su contraseña.</a></strong>
+                        </div>
+                    <?php endif;?>
                     <div class="label">
                         <input type="checkbox" name="rememberme" value="">
                         <label for="confirm">Recordarme</label>

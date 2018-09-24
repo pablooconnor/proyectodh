@@ -63,7 +63,7 @@ if($_POST) {
                     <?php endif;?> 
 
                     <label class="label">Correo Electrónico</label>
-                    <input class="textfield" type="text" name="email" value="<?=isset($errors['email']) ? "" : old('email'); ?>" placeholder="user@email.com" >
+                    <input class="textfield" type="text" name="email" value="<?=isset($errors['email']) ? "" : old('email'); ?><?=isset($_GET['email']) ? $_GET['email'] : "" ;?>" placeholder="user@email.com" >
 
                     <?php if(isset($errors['email'])): ?>
                         <div class="alert alert-danger">
