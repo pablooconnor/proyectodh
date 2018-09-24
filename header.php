@@ -21,6 +21,8 @@
             <a href="login.php">Iniciar sesion</a>
             <a href="formulario.php">Registro</a>
             <a href="faq.php">F.A.Q.</a>
+            <a href="perfil.php">Perfil</a>
+
         </nav>
     </div>
 </header>
