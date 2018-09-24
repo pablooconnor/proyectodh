@@ -1,3 +1,10 @@
+/*
+        <----FONTS---->
+font-family: 'Patrick Hand', cursive;
+font-family: 'Indie Flower', cursive;
+font-family: 'Lato', sans-serif;
+*/
+
 * {
     margin: 0;
     padding: 0;
@@ -16,7 +23,8 @@ body {
 }
 
 .form h2{
-    font-size: 1.5em;
+    font-size: 2em;
+    font-family: 'Indie Flower', cursive;
 }
 
 .form h3{
@@ -65,18 +73,18 @@ input[type="text"], input[type="email"], option, select{
     width: 75%;
 }
 
-.button-container{
-    width: 80%;
+.loginbutton{
+    width: 90%;
     display: flex;
     justify-content: space-around;
     text-transform: uppercase;
 }
 
-.button-container button{
+.loginbutton button{
     color:white;
     text-align: center;
     font-family: 'Lato', sans-serif;
-    font-size: 3vw;
+    font-size: 0.7em;
     text-transform: uppercase;
     background-color: #9EB82D;
     border: 2px solid white;
@@ -119,4 +127,18 @@ input[type="text"], input[type="email"], option, select{
     font-size: 17px;
     line-height: 20px;
     text-decoration: none;
+}
+
+.alert{
+    display: block;
+    width: 80%;
+    border-radius: 10px;
+    background-color: rgb(55, 66, 3);
+    margin: 5px 0px;
+    padding: 5px;
+    font-size: 0.7em;
+}
+
+.alert a{
+    color: #9EB82D;
 }

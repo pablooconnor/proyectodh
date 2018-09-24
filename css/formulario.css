@@ -1,13 +1,17 @@
+/*
+        <----FONTS---->
+font-family: 'Indie Flower', cursive;
+font-family: 'Lato', sans-serif;
+*/
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    transition:all 0.5s ease;
 }
 
 body {
-    font-family: 'Patrick Hand', cursive;
-
+    font-family: 'Lato', sans-serif;
 }
 
 /* Formulario */
@@ -18,7 +22,8 @@ body {
 }
 
 .form h2{
-    font-size: 1.5em;
+    font-size: 2em;
+    font-family: 'Indie Flower', cursive;
 }
 
 .form h3{
@@ -46,7 +51,7 @@ body {
 }
 
 input[type="text"], input[type="email"], option, select{
-    font-family: 'Indie Flower', cursive;
+    font-family: 'Lato', sans-serif;
 }
 
 .selection{
@@ -76,7 +81,7 @@ input[type="text"], input[type="email"], option, select{
 
 .button-container button{
     color:white;
-    font-family: 'Indie Flower', cursive;
+    font-family: 'Lato', sans-serif;
     font-size: 1em;
     text-transform: uppercase;
     background-color: #9EB82D;
@@ -88,4 +93,18 @@ input[type="text"], input[type="email"], option, select{
     padding: 5px 10px 3px 10px;
     margin: 10px 0;
     text-align: end;
+}
+
+.alert{
+    display: block;
+    width: 80%;
+    border-radius: 10px;
+    background-color: rgb(55, 66, 3);
+    margin: 5px 0px;
+    padding: 5px;
+    font-size: 0.7em;
+}
+
+.alert a{
+    color: #9EB82D;
 }

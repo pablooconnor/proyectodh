@@ -57,7 +57,7 @@ if($_POST) {
                         <input type="checkbox" name="rememberme" value="">
                         <label for="confirm">Recordarme</label>
                     </div>  
-                    <div class="button-container">
+                    <div class="loginbutton">
                         <button type="submit">Iniciar sesión</button>
                     </div>
                     <span class="psw">¿Olvidaste tu contraseña? Haz click aqui para <a href="#">recuperar contraseña.</a></span>
