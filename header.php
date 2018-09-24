@@ -4,7 +4,7 @@
             <img class="header-logo" src="images/logo.png" alt="Logo">
             <div class="header-title">
                 <h1>Panu</h1>
-                <h2>Tu portal de adopción</h2>
+                <h3>Tu portal de adopción</h3>
             </div>
         </a>
         </div>

@@ -31,7 +31,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Panu - Registrarse</title>
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Patrick+Hand" rel="stylesheet">
     <link rel="stylesheet" href="css/perfil.css">
     <link rel="stylesheet" href="css/header-footer.css">
     
