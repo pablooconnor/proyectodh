@@ -13,11 +13,16 @@ function validate($data)
     }
 
     $email = trim($data['email']);
+    $emailExists = dbEmailSearch($email);
 
-    if($email == "") {
-        $errors['email'] = "Por favor colocar el email";
-    } elseif(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $errors['email'] = "Email no valido";
+    if($emailExists === null){
+        if($email == "") {
+            $errors['email'] = "Por favor colocar el email";
+        } elseif(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $errors['email'] = "Email no valido";
+        }
+    } else {
+        $errors['email'] = "Este email ya se encuentra en uso";
     }
 
     if(!isset($data['provincia'])) {
