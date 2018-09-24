@@ -40,10 +40,14 @@ if($_POST) {
             
                 <div class="form-flex">
                   <label class="lable" ><b>Email</b></label>
-                  <input class="textfield"  placeholder="Ingresar Usuario" name="email" required>
+                  <input class="textfield"  placeholder="Ingresar Usuario" value="<?php if(isset($_COOKIE["email"])) { echo $_COOKIE["email"]; } ?>" name="email" required>
               
                   <label class="lable"><b>Contraseña</b></label>
                   <input class="textfield" type="password" placeholder="Ingresar Contraseña" name="password" required>
+
+                  <br>
+                  <input type="checkbox" name="rememberme" value="">
+                  <label for="confirm">Recordarme</label>
 
                   <div class="button-container">
                   <button type="submit">Iniciar sesión</button>

@@ -176,13 +176,16 @@ function dbEmailSearch($email)
 
 
 
-
 function login($user)
 {
     $_SESSION['username'] = $user['username'];
+    if(isset($_POST["rememberme"])) {
     setcookie('username', $user['username'], time() + 3600 * 24 * 7, "/");
+    }
     $_SESSION['email'] = $user['email'];
+    if(isset($_POST["rememberme"])) {
     setcookie('email', $user['email'], time() + 3600 * 24 * 7, "/");
+    }
 }
 
 function logout() // no use esta funcion 
