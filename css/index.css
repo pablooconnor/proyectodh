@@ -37,6 +37,7 @@ h2{
     display: flex;
     flex-direction: column;
     margin-bottom: 5px;
+
 }
 
 .textarea{
@@ -63,8 +64,10 @@ h2{
 .submit{
     display: inline-block;
     padding: 10px 15px;
+    font-family: 'lato', sans-serif;
+    border: 2px solid white;
     font-size: 20px;
-    border-radius: 0;
+    border-radius: 10px;
     -webkit-appearance: none;
     background-color: #9EB82D;
     color: white;
