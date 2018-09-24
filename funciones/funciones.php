@@ -126,13 +126,9 @@ function idGenerate()
     }
 
     $users = explode(PHP_EOL, $file);
-    array_pop($users);
 
-    $lastUser = $users[count($users) - 1];
-    $lastUser = json_decode($lastUser, true);
-
-    return $lastUser['id'] + 1;
-
+    $highestId = highestId($users);
+    return $highestId['id'] + 1;
 }
 
 function saveUser($user)
@@ -147,8 +143,6 @@ function dbConnect()
 {
     $db = file_get_contents('users.json');
     $arr = explode(PHP_EOL, $db);
-
-    array_pop($arr);
 
     foreach($arr as $user) {
         $usersArray[] = json_decode($user, true);
@@ -174,6 +168,35 @@ function dbEmailSearch($email)
     return null;
 }
 
+function dbIdSearch($id){
+    $users = dbConnect();
+    foreach($users as$user){
+        if($user['id'] == $id){
+            return $user;
+        }
+    }
+}
+
+function deleteUser($userId) {
+    $lines = file('users.json', FILE_IGNORE_NEW_LINES);
+    foreach($lines as $line){
+        $arr = json_decode($line, true);
+        if($arr['id'] == $userId){
+            unset($lines[array_search($line, $lines)]);
+            $data = implode(PHP_EOL, $lines);
+            file_put_contents('users.json', $data);
+        }
+    }
+}
+
+function highestId($users){
+    $ids = [];
+    foreach($users as $user){
+        $userDecoded = json_decode($user, true);
+        $ids[] = $userDecoded['id'];
+    }
+    return max($ids);
+}
 
 
 function login($user)
@@ -198,123 +221,3 @@ function logout() // no use esta funcion
     redirect('index.php');
 
 }
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -1,5 +1,5 @@
 <?php
-require 'funciones.php';
+require 'funciones/funciones.php';
 
 if(check()) {
     redirect('perfil.php'); // hay que crearlo

@@ -1,6 +1,6 @@
 <?php
 
-require 'funciones.php';
+require 'funciones/funciones.php';
 
 if(check()) {
     redirect('perfil.php');
@@ -26,49 +26,40 @@ if($_POST) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Login</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/login.css">
-    <link rel="stylesheet" href="css/header-footer.css">
-    <link href="https://fonts.googleapis.com/css?family=Patrick+Hand" rel="stylesheet">
 </head>
 <body>
     <div class="main">
         <?php include_once('header.php')?>
         <main>
-        <form class="form" action="" method="post">
-            <h2>Inicia sesion</h2>
-            
+            <form class="form" action="" method="post">
+                <h2>Inicia sesion</h2>
                 <div class="form-flex">
-                  <label class="lable" ><b>Email</b></label>
-                  <input class="textfield"  placeholder="Ingresar Usuario" value="<?php if(isset($_COOKIE["email"])) { echo $_COOKIE["email"]; } ?>" name="email" required>
-              
-                  <label class="lable"><b>Contraseña</b></label>
-                  <input class="textfield" type="password" placeholder="Ingresar Contraseña" name="password" required>
+                    <label class="label" ><b>Email</b></label>
+                    <input class="textfield"  placeholder="Ingresar email" value="<?php if(isset($_COOKIE["email"])) { echo $_COOKIE["email"]; } ?>" name="email" required>
+                
+                    <label class="label"><b>Contraseña</b></label>
+                    <input class="textfield" type="password" placeholder="Ingresar Contraseña" name="password" required>
 
-                  <br>
-                  <input type="checkbox" name="rememberme" value="">
-                  <label for="confirm">Recordarme</label>
-
-                  <div class="button-container">
-                  <button type="submit">Iniciar sesión</button>
-                  <label>
-
-                  <button type="button" class="cancelbtn">Cancelar</button>
-                </div>
-
-                  <span class="psw">¿Olvidaste tu <a href="#">contraseña?</a></span>
-
-                <div class="col">
-                    <a href="#" class="fb btn">
-                      <i class="fa fa-facebook"></i> Iniciar con Facebook
-                    </a>
-                    <a href="#" class="google btn">
-                      <i class="fa fa-google"></i> Iniciar con Google+
-                    </a>
-                  </div>            
-              </form>
-            </main>
-            <?php include_once('footer.php')?>
+                    <div class="label">
+                        <input type="checkbox" name="rememberme" value="">
+                        <label for="confirm">Recordarme</label>
+                    </div>  
+                    <div class="button-container">
+                        <button type="submit">Iniciar sesión</button>
+                    </div>
+                    <span class="psw">¿Olvidaste tu contraseña? Haz click aqui para <a href="#">recuperar contraseña.</a></span>
+                    <div class="social">
+                        <a href="#" class="fb btn">
+                            <i class="fa fa-facebook"></i> Iniciar con Facebook
+                        </a>
+                        <a href="#" class="google btn">
+                            <i class="fa fa-google"></i> Iniciar con Google+
+                        </a>
+                    </div>            
+            </form>
+        </main>
+        <?php include_once('footer.php')?>
       </div>
 </body>
 </html>

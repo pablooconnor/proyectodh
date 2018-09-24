@@ -1,3 +1,11 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Lato" rel="stylesheet">
+    <link rel="stylesheet" href="css/header-footer.css">
+    <link href="https://unpkg.com/ionicons@4.4.2/dist/css/ionicons.min.css" rel="stylesheet">
+</head>
+<body>
 <footer class="footer">
     <ul class="footerNav">
         <li><a href="index.php"><i class="icon ion-md-arrow-dropright-circle"></i> Inicio</i></a></li>
@@ -12,3 +20,5 @@
     </ul>
     <p>Copyright © Todos los Derechos Reservados</p>
 </footer>
+</body>
+</html>

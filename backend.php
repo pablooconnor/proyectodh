@@ -1,8 +1,15 @@
 <?php
-require 'funciones.php';
+require 'funciones/funciones.php';
 
 if(checkRole($_SESSION['email']) == false) {
     redirect('perfil.php');
+}
+
+$users = dbConnect();
+
+if(isset($_GET['id'])){
+    $userId = $_GET['id'];
+    deleteUser($userId);
 }
     
 ?>
@@ -12,25 +19,22 @@ if(checkRole($_SESSION['email']) == false) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Login</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Admin Panel - Panu</title>
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Lato" rel="stylesheet">
+    <link href="https://unpkg.com/ionicons@4.4.2/dist/css/ionicons.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/backend.css">
-    <link rel="stylesheet" href="css/header-footer.css">
-    <link href="https://fonts.googleapis.com/css?family=Patrick+Hand" rel="stylesheet">
-</head>
-
-    <?php require 'header.php' ?>
 </head>
 <body>
+    <?php include_once 'header.php'; ?>
     <div class="container">
-
-        <!-- <div class="alert alert-danger" role="alert">
-            No estas autorizado en este sistema <a href="register.php" class="alert-link">Registrate!</a>
-        </div> -->
-
-        <h1>Todavia no podes hacer nada, SORRY!</h1>
-
+        <h2>Eliminar usuarios. </h2>
+        <h3>Hay un total de <?=count($users)?> usuarios.</h3>
+        <ul class="userslist">
+            <?php foreach($users as $user):?>
+            <li><a href="?id=<?=$user['id'];?>"><i class="icon ion-md-trash"></i> <?=$user['email']?></a></li>
+            <?php endforeach;?>
+    </ul>
     </div>
-    <?php require 'footer.php' ?>
+    <?php include_once 'footer.php'; ?>
 </body>
 </html>

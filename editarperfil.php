@@ -1,5 +1,5 @@
 <?php
-require 'funciones.php';
+require 'funciones/funciones.php';
 
 if($_POST) {
     // A la variable $errors asignale lo que de como resultado la funcion validate() que procese $_POST

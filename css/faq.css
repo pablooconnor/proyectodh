@@ -2,20 +2,21 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    transition:all 0.5s ease;
 }
 
 body {
-    font-family: 'Patrick Hand', cursive;
+    font-family: 'Lato', sans-serif;
 }
 
 /*FAQ*/
 .imagenesfaq{
     width: 5%;
 }
+
 .faqpar{
     color: #9EB82D; 
 }
+
 .mainsectionfaq{
     width: 80%;
     border-top-left-radius: 10px;
@@ -24,7 +25,9 @@ body {
     padding: 10px 0;
     padding-top: 35px;
 }
+
 .h2faq{
+    font-family: 'Indie Flower', cursive;
     font-size: 2.5em;
     text-align: center;
     padding-top: 35px;

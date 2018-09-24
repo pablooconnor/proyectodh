@@ -1,5 +1,5 @@
 <?php
-    require 'funciones.php';
+    require 'funciones/funciones.php';
 
     // if(guest()) {
     //     redirect('register.php');
@@ -43,65 +43,59 @@
 
         <?php //Checkeamos que no sea un GUEST, y en caso de serlo, error ?>
             <?php if(guest()):?>
-            <div class="alert alert-danger" role="alert">
-                No estas autorizado en este sistema <a href="register.php" class="alert-link">Registrate!</a>
-            </div>
+                <div class="alert alert-danger" role="alert">
+                    No estas autorizado en este sistema <a href="register.php" class="alert-link">Registrate!</a>
+                </div>
             <?php else: ?>
-
-    <div class="container">
-    <div class="row">
-        <div class=" col-lg-offset-3 col-lg-6">
-            <div class="panel panel-default">
-                <div class="panel-body">
+                <div class="container">
                     <div class="row">
-                        <div class="col-lg-12">
-                            <div class="row">
-                                <div class="col-sm-offset-3 col-sm-6 col-md-offset-3 col-md-6 col-lg-offset-3 col-lg-6">
-                                    
-                                <?php //si NO TIENE AVATAR ?>
-                                <?php if(!isset($user['avatar'])):?>
-                                <?php //si Cargame la imagen de d10s ?>
-                                <img class="img-circle img-responsive" src="img/default.png" alt="avatar default">
-                                <?php else: ?>
-                                <?php // ELSE -----> cargame su avatar ?>
-                                <img class="img-circle img-responsive" src="img/<?=$avatar?>" alt="avatar">
-                                <?php endif;?>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="row">
-                                <div class="centered-text col-sm-offset-3 col-sm-6 col-md-offset-3 col-md-6 col-lg-offset-3 col-lg-6">
-                                    <div>
-                                        <h3><?="Bienvenido $username!" ?></h3>
-                                        <p> <?="Email: $email" ?></p>
-                                        <p><?="Provincia: $provincia" ?></p>
-                                        <p> <?="Direccion: $direction" ?></p>
+                        <div class=" col-lg-offset-3 col-lg-6">
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="row">
+                                                <div class="col-sm-offset-3 col-sm-6 col-md-offset-3 col-md-6 col-lg-offset-3 col-lg-6">
+                                                    <?php //si NO TIENE AVATAR ?>
+                                                    <?php if(!isset($user['avatar'])):?>
+                                                    <?php //si Cargame la imagen de d10s ?>
+                                                    <img class="img-circle img-responsive" src="img/default.png" alt="avatar default">
+                                                    <?php else: ?>
+                                                    <?php // ELSE -----> cargame su avatar ?>
+                                                    <img class="img-circle img-responsive" src="img/<?=$avatar?>" alt="avatar">
+                                                    <?php endif;?>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="button-container">
-                                    <button type="submit"><a href="editarperfil.php">Editar</button>
-                                    <button type="reset" ><a href="logout.php">Logout</a></button>
-                                    <?php if(checkRole($_SESSION['email']) == true): ?>
-                                    <button type="reset"><a class="nav-link" href="backend.php">Administrar</a></button>
-                                    <?php endif; ?>
-                                    <?php // mail: admin@gmail.com password:123456 roll:7 ?>
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="row">
+                                                <div class="centered-text col-sm-offset-3 col-sm-6 col-md-offset-3 col-md-6 col-lg-offset-3 col-lg-6">
+                                                    <div>
+                                                        <h3><?="Bienvenido $username!" ?></h3>
+                                                        <p> <?="Email: $email" ?></p>
+                                                        <p><?="Provincia: $provincia" ?></p>
+                                                        <p> <?="Direccion: $direction" ?></p>
+                                                    </div>
+                                                    <div class="button-container">
+                                                        <button type="submit"><a href="editarperfil.php">Editar</button>
+                                                        <button type="reset" ><a href="logout.php">Logout</a></button>
+                                                        <?php if(checkRole($_SESSION['email']) == true): ?>
+                                                        <button type="reset"><a class="nav-link" href="backend.php">Administrar</a></button>
+                                                        <?php endif; ?>
+                                                        <?php // mail: admin@gmail.com password:123456 roll:7 ?>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                
-            </div>
-        </div>
-    </div>
-</div>
-           
-<?php endif; ?>
+            <?php endif; ?>
         </main>    
         <?php include_once('footer.php');?>
     </div>   

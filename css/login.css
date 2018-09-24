@@ -2,35 +2,10 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    transition:all 0.5s ease;
 }
 
 body {
-    font-family: 'Indie Flower', cursive;
-}
-
-/* Login */
-.fb {
-    background-color: #3B5998;
-    color: white;
-}
-  
-.google {
-    background-color: #dd4b39;
-    color: white;
-}
-
-.btn {
-    max-width: 100%;
-    padding: 8px;
-    border: none;
-    border-radius: 4px;
-    margin: 5px 0;
-    opacity: 0.85;
-    display: inline-block;
-    font-size: 17px;
-    line-height: 20px;
-    text-decoration: none;
+    font-family: 'Lato', sans-serif;
 }
 
 /* Formulario */
@@ -62,14 +37,14 @@ body {
     box-shadow: 2px 2px 3px rgba(70, 70, 70, 0.678);
     text-shadow: 0px 0px 5px rgba(70, 70, 70, 0.678);
     align-items: center;
-    text-align: center;
-    width: 90%;
+    justify-content: center;
+    width: 95%;
     margin: 0 auto;
     max-width: 648px;
 }
 
 input[type="text"], input[type="email"], option, select{
-    font-family: 'Indie Flower', cursive;
+    font-family: 'Lato', sans-serif;
 }
 
 .selection{
@@ -84,10 +59,10 @@ input[type="text"], input[type="email"], option, select{
 
 .textfield{
     display: flex;
-    font-size: 20px;
+    font-size: 1em;
     background-color:whitesmoke;
     align-items: flex-start;
-    width: 80%;
+    width: 75%;
 }
 
 .button-container{
@@ -99,16 +74,49 @@ input[type="text"], input[type="email"], option, select{
 
 .button-container button{
     color:white;
-    font-family: 'Patrick Hand', cursive;
-    font-size: 1em;
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+    font-size: 3vw;
     text-transform: uppercase;
     background-color: #9EB82D;
     border: 2px solid white;
     border-radius: 10px;
     box-shadow: 1px 1px 3px rgba(70, 70, 70, 0.678);
     text-shadow: 0px 0px 5px rgba(70, 70, 70, 0.678);
-    margin-top: 20px;
-    padding: 5px 10px 3px 10px;
+    padding: 20px 10px;
     margin: 10px 0;
-    text-align: end;
+    width: 40%;
+}
+
+.psw{
+    font-size: 0.8em;
+    margin-bottom: 10px;
+}
+
+/* Login */
+.social{
+    width: 100%;
+    margin: 20px 0;
+    display: flex;
+    justify-content: space-around;
+}
+.fb {
+    background-color: #3B5998;
+    color: white;
+}
+  
+.google {
+    background-color: #dd4b39;
+    color: white;
+}
+
+.btn {
+    width: 40%;
+    padding: 8px;
+
+    border-radius: 4px;
+    display: inline-block;
+    font-size: 17px;
+    line-height: 20px;
+    text-decoration: none;
 }
