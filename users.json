@@ -7,4 +7,5 @@
 {"username":"carlos","email":"carlos21@gmail.com","password":"$2y$10$juut.yp26DRFq6yuHKOmcuyVyqfL4D65KkbYsZJX1EGjtwqZoY9n.","role":1,"provincia":"R\u00edo Negro","direction":"calle falsa 123","id":8,"avatar":"perfilcarlos.png"}
 {"username":"pablo","email":"messi@gmail.com","password":"$2y$10$06CdsdJzYgi8E\/3KNXaEju3hW3CnIhc82f9uWyw.xy4KqG29cjYfC","role":1,"provincia":"Chaco","direction":"fsfssd","id":9,"avatar":"perfilpablo.png"}
 {"username":"admi","email":"admi@gmail.com","password":"$2y$10$kPdlwLuC5escpokm4K9i6OzTaNnoPc1rMHAfyimUVrGEmwQGI..Pm","role":7,"provincia":"Misiones","direction":"salta 324","id":11,"avatar":"perfiladmi.png"}
-{"username":"lenny","email":"lenny@gmail.com","password":"$2y$10$mIz5RoDR3OH8fBV7bEAYCuJMjNUGGddmXVk7u9TxFpdo.qXNaZEXK","role":1,"provincia":"C.A.B.A.","direction":"siempre viva 1236","id":12}
+{"username":"asdasd","email":"asd@asd.com","password":"$2y$10$UhPWVdKBEVhBF\/hT\/9eijOTzVu8M04EdeAoLO8sY0BVyAGzfR4jde","role":1,"direction":"asdasd","provincia":"Corrientes","id":1}
+{"username":"asdasd","email":"qwe@qwe.qwe","password":"$2y$10$b3MAguEdBX.dQpGNr.1J4u0KCLQvKxLxKEWgzeSLtAx.kHcPSzYea","role":1,"direction":"qweqwe","provincia":"Chaco","id":12}

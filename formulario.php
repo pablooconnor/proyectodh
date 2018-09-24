@@ -76,31 +76,31 @@ if($_POST) {
 
                     <label class="label">Provincia:</label>
                     <select class="selection" name="provincia" value="<?=isset($errors['provincia']) ? "" : old('provincia'); ?>">
-                        <option class="selection" value="" >Seleccione su provincia:</option>
-                        <option class="selection" value="C.A.B.A.">C.A.B.A.</option> 
-                        <option class="selection" value="Buenos Aires">Buenos Aires</option> 
-                        <option class="selection" value="Catamarca">Catamarca</option> 
-                        <option class="selection" value="Chaco">Chaco</option> 
-                        <option class="selection" value="Chubut">Chubut</option> 
-                        <option class="selection" value="Córdoba">Córdoba</option> 
-                        <option class="selection" value="Corrientes">Corrientes</option> 
-                        <option class="selection" value="Entre Ríos">Entre Ríos</option> 
-                        <option class="selection" value="Formosa">Formosa</option> 
-                        <option class="selection" value="Jujuy">Jujuy</option> 
-                        <option class="selection" value="La Pampa">La Pampa</option> 
-                        <option class="selection" value="La Rioja">La Rioja</option> 
-                        <option class="selection" value="Mendoza">Mendoza</option>                
-                        <option class="selection" value="Misiones">Misiones</option> 
-                        <option class="selection" value="Neuquén">Neuquén</option> 
-                        <option class="selection" value="Río Negro">Río Negro</option> 
-                        <option class="selection" value="Salta">Salta</option> 
-                        <option class="selection" value="San Juan">San Juan</option> 
-                        <option class="selection" value="Santa Cruz">Santa Cruz</option> 
-                        <option class="selection" value="Santa Fe">Santa Fe</option> 
-                        <option class="selection"value="Santiago del Estero">Santiago del Estero</option>
-                        <option class="selection"value="Tierra del Fuego">Tierra del Fuego</option>
-                        <option class="selection"value="Tucumán">Tucumán</option>
-                        <option class="selection"value="Islas Malvinas Argentinas">Islas Malvinas Argentinas</option>
+                        <option class="selection" name="provincia" value="" selected hidden disabled>Seleccione su provincia:</option>
+                        <option class="selection" name="provincia" value="C.A.B.A.">C.A.B.A.</option> 
+                        <option class="selection" name="provincia" value="Buenos Aires">Buenos Aires</option> 
+                        <option class="selection" name="provincia" value="Catamarca">Catamarca</option> 
+                        <option class="selection" name="provincia" value="Chaco">Chaco</option> 
+                        <option class="selection" name="provincia" value="Chubut">Chubut</option> 
+                        <option class="selection" name="provincia" value="Córdoba">Córdoba</option> 
+                        <option class="selection" name="provincia" value="Corrientes">Corrientes</option> 
+                        <option class="selection" name="provincia" value="Entre Ríos">Entre Ríos</option> 
+                        <option class="selection" name="provincia" value="Formosa">Formosa</option> 
+                        <option class="selection" name="provincia" value="Jujuy">Jujuy</option> 
+                        <option class="selection" name="provincia" value="La Pampa">La Pampa</option> 
+                        <option class="selection" name="provincia" value="La Rioja">La Rioja</option> 
+                        <option class="selection" name="provincia" value="Mendoza">Mendoza</option>                
+                        <option class="selection" name="provincia" value="Misiones">Misiones</option> 
+                        <option class="selection" name="provincia" value="Neuquén">Neuquén</option> 
+                        <option class="selection" name="provincia" value="Río Negro">Río Negro</option> 
+                        <option class="selection" name="provincia" value="Salta">Salta</option> 
+                        <option class="selection" name="provincia" value="San Juan">San Juan</option> 
+                        <option class="selection" name="provincia" value="Santa Cruz">Santa Cruz</option> 
+                        <option class="selection" name="provincia" value="Santa Fe">Santa Fe</option> 
+                        <option class="selection"name="provincia" value="Santiago del Estero">Santiago del Estero</option>
+                        <option class="selection"name="provincia" value="Tierra del Fuego">Tierra del Fuego</option>
+                        <option class="selection"name="provincia" value="Tucumán">Tucumán</option>
+                        <option class="selection"name="provincia" value="Islas Malvinas Argentinas">Islas Malvinas Argentinas</option>
                     </select>
 
                     <?php if(isset($errors['provincia'])): ?>

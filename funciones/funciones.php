@@ -20,8 +20,7 @@ function validate($data)
         $errors['email'] = "Email no valido";
     }
 
-    $provincia = $data['provincia'];
-    if($provincia == "") {
+    if(!isset($data['provincia'])) {
         $errors['provincia'] = "Por favor completar la provincia";
     }
 
@@ -107,9 +106,12 @@ function createUser($data)
         'email' => $data['email'],
         'password' => password_hash($data['password'], PASSWORD_DEFAULT),
         'role' => 1,
-        'provincia' => $data['provincia'],
-        'direction' => $data['direction'],
+        'direction' => $data['direction']
     ];
+
+    if(isset($data['provincia'])){
+    $usuario['provincia'] = $data['provincia'];
+    }
 
     $usuario['id'] = idGenerate();
 
@@ -128,7 +130,7 @@ function idGenerate()
     $users = explode(PHP_EOL, $file);
 
     $highestId = highestId($users);
-    return $highestId['id'] + 1;
+    return $highestId + 1;
 }
 
 function saveUser($user)
@@ -151,6 +153,7 @@ function dbConnect()
     return $usersArray;
 
 }
+
 // Busqueda x email
 function dbEmailSearch($email)
 {
