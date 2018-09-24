@@ -29,8 +29,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Panu - Registrarse</title>
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <title><?=isset($username) ? $user['username'] : "Perfil";?> - Panu</title>
     <link href="https://fonts.googleapis.com/css?family=Patrick+Hand" rel="stylesheet">
     <link rel="stylesheet" href="css/perfil.css">
     <link rel="stylesheet" href="css/header-footer.css">
@@ -44,7 +43,7 @@
         <?php //Checkeamos que no sea un GUEST, y en caso de serlo, error ?>
             <?php if(guest()):?>
                 <div class="alert alert-danger" role="alert">
-                    No estas autorizado en este sistema <a href="register.php" class="alert-link">Registrate!</a>
+                    No estas autorizado en este sistema <a href="register.php" class="alert-link">registrese</a> o <a href="login.php" class="alert-link">inicie sesión</a>
                 </div>
             <?php else: ?>
                 <div class="container">

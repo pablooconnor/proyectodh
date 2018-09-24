@@ -27,14 +27,6 @@ body {
     font-family: 'Indie Flower', cursive;
 }
 
-.form h3{
-    font-size: 0.9em;
-}
-
-.form h4{
-    font-size: 0.8em;
-}
-
 .form-flex{
     display: flex;
     flex-direction: column;
@@ -53,11 +45,6 @@ body {
 
 input[type="text"], input[type="email"], option, select{
     font-family: 'Lato', sans-serif;
-}
-
-.selection{
-    font-size: 0.8em;
-    width: 80%;
 }
 
 .label{
