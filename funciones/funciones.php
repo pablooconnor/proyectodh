@@ -151,6 +151,8 @@ function dbConnect()
     $db = file_get_contents('users.json');
     $arr = explode(PHP_EOL, $db);
 
+    array_pop($arr);
+
     foreach($arr as $user) {
         $usersArray[] = json_decode($user, true);
     }
@@ -193,6 +195,11 @@ function deleteUser($userId) {
             unset($lines[array_search($line, $lines)]);
             $data = implode(PHP_EOL, $lines);
             file_put_contents('users.json', $data);
+            //Add blank line at the end of JSON
+            $json = fopen('users.json', a);
+            fwrite($json, PHP_EOL);
+            fclose($json);
+            
         }
     }
 }
