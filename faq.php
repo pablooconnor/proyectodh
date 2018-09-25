@@ -1,3 +1,7 @@
+<?php
+    require 'funciones/funciones.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

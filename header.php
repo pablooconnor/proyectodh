@@ -18,12 +18,21 @@
         </div>
         <img class="header-background" src="images/pets.png" alt="">
         <nav class="navigation">
-            <a href="login.php">Iniciar sesion</a>
-            <a href="formulario.php">Registro</a>
+            <a href="index.php">Inicio</a>
+            <?php if(guest()):?>
+                <a href="login.php">Iniciar sesion</a>
+                <a href="formulario.php">Registro</a>
+            <?php endif;?>
             <a href="faq.php">F.A.Q.</a>
-            <a href="perfil.php">Perfil</a>
-
+            <?php if(check()):?>
+                <a href="perfil.php">Perfil</a>
+            <?php endif; ?>
         </nav>
+        <?php if(check()):?>
+            <div class="session">
+                <h3>Sesión iniciada como <?=$_SESSION['username'];?>, <a href="logout.php">cerrar sesión</a></h3>
+            </div>
+        <?php endif;?>
     </div>
 </header>
 </body>
