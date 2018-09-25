@@ -69,6 +69,24 @@ if($_POST) {
                         </div>
                     <?php endif;?> 
 
+                    <label class="label">Sexo</label>
+                    <div class="radioButtons">
+                        <div>
+                            <input type="radio" name="sexo" value="masculino">
+                            <label>Masculino</label>
+                        </div>
+                        <div>
+                            <input type="radio" name="sexo" value="femanino">
+                            <label>Femenino</label>
+                        </div>
+                    </div> <br>
+
+                    <?php if(isset($errors['sexo'])): ?>
+                        <div class="alert alert-danger">
+                            <strong><?=$errors['sexo']; ?></strong>
+                        </div>
+                    <?php endif;?> 
+
                     <label for="avatar">Foto de perfil:</label>
                     <input type="file" name="avatar">
 
