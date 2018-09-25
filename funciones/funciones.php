@@ -67,16 +67,15 @@ function validateAvatar($data)
         
         $ext = pathinfo($nombre, PATHINFO_EXTENSION);
 
-        if($ext != "jpg" && $ext != "png" && $ext != "jpeg") {
+        if(strtolower($ext) != "jpg" && $ext != "png" && $ext != "jpeg") {
             $errores["avatar"] = "Solo acepto formatos jpg y png";
             return $errores;
         }
 
-        $miArchivo = dirname(__FILE__);
+        $miArchivo = dirname(dirname(__FILE__));
         $miArchivo = $miArchivo . "/img/";
         $miArchivo = $miArchivo. "perfil" . $username . "." . $ext;
         move_uploaded_file($archivo, $miArchivo);
-
     } else {
         $errores["avatar"] = "Hubo un error al procesar el archivo";
     }
@@ -195,11 +194,11 @@ function deleteUser($userId) {
             unset($lines[array_search($line, $lines)]);
             $data = implode(PHP_EOL, $lines);
             file_put_contents('users.json', $data);
+
             //Add blank line at the end of JSON
             $json = fopen('users.json', a);
             fwrite($json, PHP_EOL);
             fclose($json);
-            
         }
     }
 }

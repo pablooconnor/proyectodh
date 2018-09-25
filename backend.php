@@ -10,6 +10,7 @@ $users = dbConnect();
 if(isset($_GET['id'])){
     $userId = $_GET['id'];
     deleteUser($userId);
+    redirect('backend.php');
 }
     
 ?>
