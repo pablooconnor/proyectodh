@@ -24,6 +24,10 @@ function validate($data)
     } else {
         $errors['email'] = "Este email ya se encuentra en uso";
     }
+        
+    if(!isset($data['sexo'])) {
+        $errors['sexo'] = "Por favor completar tu sexo";
+    }
 
     if(!isset($data['provincia'])) {
         $errors['provincia'] = "Por favor completar la provincia";
