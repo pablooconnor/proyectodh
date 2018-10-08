@@ -2,17 +2,18 @@
 
 session_start();
 require 'helpers.php';
+require 'user.php';
 
-function validate($data)
+ public function validate($user)
 {
     $errors = [];
 
-    $username = trim($data['username']);
+    $username = trim( $user->getUsername());
     if($username == "") {
         $errors['username'] = "Por favor completar con nombre y apellido";
     }
 
-    $email = trim($data['email']);
+    $email = trim($user->getEmail);
     $emailExists = dbEmailSearch($email);
 
     if($emailExists === null){
@@ -25,21 +26,21 @@ function validate($data)
         $errors['email'] = "Este email ya se encuentra en uso";
     }
         
-    if(!isset($data['sexo'])) {
+    if(!isset($user['sexo'])) {
         $errors['sexo'] = "Por favor completar tu sexo";
     }
 
-    if(!isset($data['provincia'])) {
+    if(!isset($user['provincia'])) {
         $errors['provincia'] = "Por favor completar la provincia";
     }
 
-    $direction = $data['direction'];
+    $direction = $user->getDireccion();
     if($direction == "") {
         $errors['direction'] = "Por favor completar la dirección";
     }
 
-    $password = trim($data['password']);
-    $cpassword = trim($data['cpassword']);
+    $password = trim($user->getPassword());
+    $cpassword = trim($user->getCpassword());
     
     if($password == "") {
         $errors['password'] = "Por favor completar la contraseña";
@@ -51,7 +52,7 @@ function validate($data)
         $errors['cpassword'] = "Las contraseñas no coinciden";
     }
 
-    if(!isset($data['confirm'])) {
+    if(!isset($user['confirm'])) {
         $errors['confirm'] = "Tenes que aceptar terminos y condiciones";
     }
 
@@ -59,11 +60,11 @@ function validate($data)
 
 }
 
-function validateAvatar($data) 
+ public function validateAvatar($user) 
 {
     $errores = [];
 
-    $username = $data["username"];
+    $username = $user->getUsername();
 
     if($_FILES["avatar"]["error"] == UPLOAD_ERR_OK) {
         $nombre = $_FILES["avatar"]["name"];
@@ -89,10 +90,10 @@ function validateAvatar($data)
 // Funcion para obtener el nombre que el avatar (foto de perfil) de un usuario va a tener DEL LADO DE MI SISTEMA
 // Con esto lograriamos guardar ese nombre en la key Avatar de nuestro array de usuario, para despues llamarlo en caso de 
 // querer mostrarlo en su perfil
-function photoPath($data)
+ public function photoPath($user)
 {
     // Guardame el username en la variable $username
-    $username = $data["username"];
+    $username = $user->getUsername();
     // Temporalmente, asigname a $nombre lo que llegue en $_FILES['avatar']['name]...
     $nombre = $_FILES["avatar"]["name"];
     // y haciendo uso de $nombre, asigna a $ext lo que devuelva la funcion pathinfo() a la cual
@@ -107,14 +108,14 @@ function photoPath($data)
 
 
 
-function createUser($data)
+ public function createUser($user)
 {
     $usuario = [
-        'username' => $data['username'],
-        'email' => $data['email'],
+        'username' => $user->getUsername();
+        'email' => $user['email'],
         'password' => password_hash($data['password'], PASSWORD_DEFAULT),
         'role' => 1,
-        'direction' => $data['direction']
+        'direction' => $user->getDirection
     ];
 
     if(isset($data['provincia'])){
@@ -127,7 +128,7 @@ function createUser($data)
 
 }
 
-function idGenerate()
+ public function idGenerate()
 {
     $file = file_get_contents("users.json");
 
@@ -141,7 +142,7 @@ function idGenerate()
     return $highestId + 1;
 }
 
-function saveUser($user)
+  public function saveUser($user)
 {
     $jsonUser = json_encode($user);
     file_put_contents('users.json', $jsonUser . PHP_EOL, FILE_APPEND);
@@ -149,7 +150,7 @@ function saveUser($user)
 // Manejo de base de datos
 
 // Emulamos una conexion a la base, trayendo el JSON y generando un array asociativo de usuarios
-function dbConnect()
+ public function dbConnect()
 {
     $db = file_get_contents('users.json');
     $arr = explode(PHP_EOL, $db);
@@ -165,7 +166,7 @@ function dbConnect()
 }
 
 // Busqueda x email
-function dbEmailSearch($email)
+ public function dbEmailSearch($email)
 {
     // Donde buscamos x email a un usuario? En el array que genera la conexion emulada!
     $users = dbConnect();
@@ -181,7 +182,7 @@ function dbEmailSearch($email)
     return null;
 }
 
-function dbIdSearch($id){
+ public function dbIdSearch($id){
     $users = dbConnect();
     foreach($users as$user){
         if($user['id'] == $id){
@@ -190,7 +191,7 @@ function dbIdSearch($id){
     }
 }
 
-function deleteUser($userId) {
+ public function deleteUser($userId) {
     $lines = file('users.json', FILE_IGNORE_NEW_LINES);
     foreach($lines as $line){
         $arr = json_decode($line, true);
@@ -207,7 +208,7 @@ function deleteUser($userId) {
     }
 }
 
-function highestId($users){
+ public function highestId($users){
     $ids = [];
     foreach($users as $user){
         $userDecoded = json_decode($user, true);
@@ -217,7 +218,7 @@ function highestId($users){
 }
 
 
-function login($user)
+ public function login($user)
 {
     $_SESSION['username'] = $user['username'];
     if(isset($_POST["rememberme"])) {
@@ -229,7 +230,7 @@ function login($user)
     }
 }
 
-function logout() // no use esta funcion 
+public function logout() // no use esta funcion 
 { 
     if (!isset($_SESSION)){
         session_start();
@@ -242,11 +243,11 @@ function logout() // no use esta funcion
 
 /* <<<<<<<<<<<<  FEED  >>>>>>>>>>>>> */
 
-function feedPopulate() {
+  public function feedPopulate() {
 
 }
 
-function feedConnect()
+ public function feedConnect()
 {
     $db = file_get_contents('posts.json');
     $arr = explode(PHP_EOL, $db);
@@ -258,7 +259,7 @@ function feedConnect()
     return $postArray;
 }
 
-function validatePost($post){
+ public function validatePost($post){
     $errors = [];
     if($post['title'] == ""){
         $errors['title'] = "No puedes dejar el titulo vacío.";
@@ -273,21 +274,21 @@ function validatePost($post){
     return $errors;
 }
 
-function createPost($post){
+ public function createPost($post){
 
 }
 
-function postSave($post)
+ public function postSave($post)
 {
     $jsonPost = json_encode($post);
     file_put_contents('post.json', $jsonUser . PHP_EOL, FILE_APPEND);
 }
 
-function validatePostAvatar($data) 
+ public function validatePostAvatar($user) 
 {
     $errores = [];
 
-    $username = $data["username"];
+    $username = $user->getUsername();
 
     if($_FILES["avatar"]["error"] == UPLOAD_ERR_OK) {
         $nombre = $_FILES["avatar"]["name"];
