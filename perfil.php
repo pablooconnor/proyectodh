@@ -1,5 +1,5 @@
 <?php
-    require 'funciones/funciones.php';
+    require 'Classes/loader.php';
 
     // if(guest()) {
     //     redirect('register.php');
@@ -13,7 +13,7 @@
         // Si tiene una foto de perfil, va a tener una key 'avatar' seteada...
         $email = $user['email'];
         $provincia = $user ['provincia'];
-        $direction = $user ['direction'];
+        $direccion = $user ['direccion'];
 
         if(array_key_exists('avatar', $user)){
             // Entonces asigname el valor de esa key a la variable $avatar
@@ -62,7 +62,7 @@
                             <h3><?="Bienvenido $username!" ?></h3>
                             <p> <?="Email: $email" ?></p>
                             <p><?="Provincia: $provincia" ?></p>
-                            <p> <?="Direccion: $direction" ?></p>
+                            <p> <?="Direccion: $direccion" ?></p>
                         </div>
                         <div class="button-container">
                             <button type="submit"><a href="editarperfil.php">Editar</button>

@@ -1,6 +1,6 @@
 <?php
 
-require 'funciones/funciones.php';
+require 'Classes/loader.php';
 
 if(check()) {
     redirect('perfil.php');

@@ -1,5 +1,5 @@
 <?php
-    require('funciones/funciones.php');
+    require('classes/loader.php');
 
     if($_POST){
         //Chequear de que formulario es (proximamente)

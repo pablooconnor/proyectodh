@@ -1,5 +1,5 @@
 <?php
-require 'funciones/funciones.php';
+require 'Classes/loader.php';
 
 if(checkRole($_SESSION['email']) == false) {
     redirect('perfil.php');

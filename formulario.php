@@ -1,21 +1,20 @@
 <?php
-require 'funciones/funciones.php';
+require 'Classes/loader.php';
 
-if(check()) {
+if(Auth::check()) {
     redirect('perfil.php'); // hay que crearlo
 }
 
 if($_POST) {
     // A la variable $errors asignale lo que de como resultado la funcion validate() que procese $_POST
-    $errors = validate($_POST);
-    // Sin importar si hay errores o no (por ahora), creamos un array de usuario con los datos de POST
-    $usuario = createUser($_POST);
+    $errors = Validate::registerValidate($_POST);
+
     // Si hay archivos, y en $_FILES la key 'error' esta seteada en 0... (para visualizar esto, hacer un dd() de $_FILES a ver que llega y COMO)
     if(empty($_FILES['avatar']['error']) == true) {
         //procesa con validateAvatar()
-        $avatarErrors = validateAvatar($_POST);
+        $avatarErrors = Validate::validateAvatar($_POST);
         //y creame una nueva key en el array $usuario llamada 'avatar' a la cual le asignamos el value de lo que devuelve la funcion photoPath()
-        $usuario['avatar'] = photoPath($_POST);
+        $avatarPath = Validate::photoPath($_POST);
         //SI no esta vacio el array $avatarErrors...
         if(!empty($avatarErrors)) {
             //mergea con array_merge() todos los errores en un solo array $errors
@@ -24,8 +23,10 @@ if($_POST) {
     }
     //si count() de $errors es == a 0
     if(count($errors) == 0) {  
+        //CREAR OBJETO USUARIO
+        $user = new User($_POST, $avatarPath);
         //guarda el usuario en Json con saveUser()
-        saveUser($usuario);
+        DB::saveUser($user);
         //y redirigime a Login (NUNCA directo al perfil)
         redirect('login.php');
     }
@@ -51,8 +52,8 @@ if($_POST) {
                 <h3>Completá los campos con tus datos para crear una cuenta en Panu!</h3>
                 <h3>Ya tienes cuenta? <a href="login.php">Iniciar sesión.</a></h3>
                 <div class="form-flex">  
-                    <label class="label" >Nombre y apellido</label> 
-                    <input class="textfield" type="text" name= "username" value="<?=isset($errors['username']) ? "" : old('username'); ?>" placeholder="Nombre Apellido" >
+                    <label class="label" >Nombre de usuario</label> 
+                    <input class="textfield" type="text" name= "username" value="<?=isset($errors['username']) ? "" : old('username'); ?>" placeholder="Nombre de usuario" >
 
                     <?php if(isset($errors['username'])): ?>
                         <div class="alert alert-danger">
@@ -76,7 +77,7 @@ if($_POST) {
                             <label>Masculino</label>
                         </div>
                         <div>
-                            <input type="radio" name="sexo" value="femanino">
+                            <input type="radio" name="sexo" value="femenino">
                             <label>Femenino</label>
                         </div>
                     </div> <br>
@@ -126,11 +127,11 @@ if($_POST) {
                     <?php endif;?> 
 
                     <label class="label">Dirección</label>
-                    <input class="textfield" type= "text" name="direction"  value="<?=isset($errors['direction']) ? "" : old('direction'); ?>" >
+                    <input class="textfield" type= "text" name="direccion"  value="<?=isset($errors['direccion']) ? "" : old('direccion'); ?>" >
 
-                    <?php if(isset($errors['direction'])): ?>
+                    <?php if(isset($errors['direccion'])): ?>
                         <div class="alert alert-danger">
-                            <strong><?=$errors['direction']; ?></strong>
+                            <strong><?=$errors['direccion']; ?></strong>
                         </div>
                     <?php endif;?>
 

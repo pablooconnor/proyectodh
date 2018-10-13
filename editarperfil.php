@@ -1,5 +1,5 @@
 <?php
-require 'funciones/funciones.php';
+require 'Classes/loader.php';
 
 if($_POST) {
     // A la variable $errors asignale lo que de como resultado la funcion validate() que procese $_POST
@@ -104,11 +104,11 @@ if($_POST) {
                     <?php endif;?> 
 
                     <label class="label">Dirección</label>
-                    <input class="textfield" type= "text" name="direction"  value="<?=isset($errors['direction']) ? "" : old('direction'); ?>" >
+                    <input class="textfield" type= "text" name="direccion"  value="<?=isset($errors['direccion']) ? "" : old('direccion'); ?>" >
 
-                    <?php if(isset($errors['direction'])): ?>
+                    <?php if(isset($errors['direccion'])): ?>
                         <div class="alert alert-danger">
-                            <strong><?=$errors['direction']; ?></strong>
+                            <strong><?=$errors['direccion']; ?></strong>
                         </div>
                     <?php endif;?>
 

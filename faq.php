@@ -1,5 +1,5 @@
 <?php
-    require 'funciones/funciones.php';
+    require 'Classes/loader.php';
 ?>
 
 <!DOCTYPE html>
