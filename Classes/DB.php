@@ -9,24 +9,29 @@ class DB{
 
         array_pop($arr);
 
-        foreach($arr as $user) {
-            $usersArray[] = json_decode($user, true);
+        if(!empty($arr)){
+            foreach($arr as $user) {
+                $usersArray[] = json_decode($user, true);
+            }
+            return $usersArray;
         }
-
-        return $usersArray;
     }
 
     // Busqueda x email
-    public static function dbEmailSearch($email)
+    public static function emailSearch($email):User
     {
         // Donde buscamos x email a un usuario? En el array que genera la conexion emulada!
         $users = self::dbConnect();
-        // POR CADA $users COMO $user...
-        foreach($users as $user) {
-            // SI el email de algun $user es === a $email (lo que lleva por parametro)
-            if($user['email'] === $email) {
-                // Devolveme el $user
-                return $user;
+        
+        if($users != null){
+            foreach($users as $user) {
+                // SI el email de algun $user es === a $email (lo que lleva por parametro)
+                if($user['email'] === $email) {
+                    // Devolveme el $user
+                    $userObject = new User($user, $user['avatar'], false);
+                    
+                    return $userObject;
+                }
             }
         }
         //Si con lo de arriba no paso nada, devolveme null

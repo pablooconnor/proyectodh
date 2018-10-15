@@ -8,7 +8,7 @@ if(Auth::check()) {
 if($_POST) {
     // A la variable $errors asignale lo que de como resultado la funcion validate() que procese $_POST
     $errors = Validate::registerValidate($_POST);
-
+    
     // Si hay archivos, y en $_FILES la key 'error' esta seteada en 0... (para visualizar esto, hacer un dd() de $_FILES a ver que llega y COMO)
     if(empty($_FILES['avatar']['error']) == true) {
         //procesa con validateAvatar()
@@ -25,6 +25,7 @@ if($_POST) {
     if(count($errors) == 0) {  
         //CREAR OBJETO USUARIO
         $user = new User($_POST, $avatarPath);
+        
         //guarda el usuario en Json con saveUser()
         DB::saveUser($user);
         //y redirigime a Login (NUNCA directo al perfil)

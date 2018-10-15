@@ -4,28 +4,28 @@ session_start();
 require 'helpers.php';
 require 'Classes/loader.php';
 
-function login($user)
-{
-    $_SESSION['username'] = $user['username'];
-    if(isset($_POST["rememberme"])) {
-    setcookie('username', $user['username'], time() + 3600 * 24 * 7, "/");
-    }
-    $_SESSION['email'] = $user['email'];
-    if(isset($_POST["rememberme"])) {
-    setcookie('email', $user['email'], time() + 3600 * 24 * 7, "/");
-    }
-}
+// function login($user)
+// {
+//     $_SESSION['username'] = $user['username'];
+//     if(isset($_POST["rememberme"])) {
+//     setcookie('username', $user['username'], time() + 3600 * 24 * 7, "/");
+//     }
+//     $_SESSION['email'] = $user['email'];
+//     if(isset($_POST["rememberme"])) {
+//     setcookie('email', $user['email'], time() + 3600 * 24 * 7, "/");
+//     }
+// }
 
-function logout() // no use esta funcion 
-{ 
-    if (!isset($_SESSION)){
-        session_start();
-    }
-    session_destroy();
-    setcookie('email', null, time() -1);
-    redirect('index.php');
+// function logout() // no use esta funcion 
+// { 
+//     if (!isset($_SESSION)){
+//         session_start();
+//     }
+//     session_destroy();
+//     setcookie('email', null, time() -1);
+//     redirect('index.php');
 
-}
+// }
 
 /* <<<<<<<<<<<<  FEED  >>>>>>>>>>>>> */
 

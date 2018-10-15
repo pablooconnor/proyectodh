@@ -37,7 +37,7 @@ function guest()
 function checkRole($email)
 {
     // a la variable $user le asigno lo que me devuelva la busqueda por mail
-    $user = dbEmailSearch($email);
+    $user = emailSearch($email);
     // SI el rol del $user es 7
     if($user['role'] == 7) {
         //dame TRUE

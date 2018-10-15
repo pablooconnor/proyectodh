@@ -7,7 +7,7 @@
     // si me llega una $_SESSION con la key 'email' seteada...
     if(isset($_SESSION['email'])) {
         // buscame el usuario por mail y guardalo en $user (necesitamos usar los otros datos y solamente tenemos el email guardado en session!)
-        $user = dbEmailSearch($_SESSION['email']);
+        $user = emailSearch($_SESSION['email']);
         // asigname a $username el nombre de usuario
         $username = $user['username'];
         // Si tiene una foto de perfil, va a tener una key 'avatar' seteada...

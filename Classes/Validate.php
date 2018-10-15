@@ -11,7 +11,7 @@ class Validate
         }
 
         $email = trim($data['email']);
-        $emailExists = DB::dbEmailSearch($email);
+        $emailExists = DB::emailSearch($email);
 
         if($emailExists === null){
             if($email == "") {

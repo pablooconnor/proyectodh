@@ -7,14 +7,17 @@ if(check()) {
 }
 
 if($_POST) {
-    $email = dbEmailSearch($_POST['email']);
-    if($email !== null) {
-        if(password_verify($_POST['password'], $email['password']) == true) {
-            login($email);
+    $user = DB::emailSearch($_POST['email']);
+    if($user !== null) {
+        var_dump($_POST['password']);
+        var_dump($user->getPassword());
+        dd(password_verify($_POST['password'], $user->getPassword()));
+        if(password_verify($_POST['password'], $user->getPassword())) {
+            Auth::login($user);
 
             redirect('perfil.php');
         } else {
-            $passwordErorr = true;
+            $passwordError = true;
         } 
     } else {
         $emailError = true;
@@ -49,7 +52,7 @@ if($_POST) {
                     <?php endif;?>
                     <label class="label"><b>Contraseña</b></label>
                     <input class="textfield" type="password" placeholder="Ingresar Contraseña" name="password" required>
-                    <?php if(isset($passwordErorr)): ?>
+                    <?php if(isset($passwordError)): ?>
                         <div class="alert alert-danger">
                             <strong><?="Contraseña incorrecta, si la olvido "; ?><a href="#">recupere su contraseña.</a></strong>
                         </div>
