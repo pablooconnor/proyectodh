@@ -1,28 +1,34 @@
 <?php
+require 'Classes/loader.php';
+
+class Helper
+{
+
+
 
 // Debug
-function dd(...$param)
+public static function dd(...$param)
 {
     echo "<pre>";
     die(var_dump($param));
 }
 
 // Errores en if ternario para values en formularios
-function old($field)
+public static function old($field)
 {
     if(isset($_POST[$field])){
         return $_POST[$field];
     }
 }
 // redirect para no andar escribiendo header(Location) sarasa todo el tiempo
-function redirect($url)
+ public static function redirect($url)
 {
     header('Location: ' . $url);
     exit;
 }
 
 // checkeo si esta seteada la session como yo quiero que este en mi sistema 
-function check()
+public static function check()
 {
     return isset($_SESSION['email']);
 }
