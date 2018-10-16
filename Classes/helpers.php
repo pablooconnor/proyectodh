@@ -1,5 +1,5 @@
 <?php
-require 'Classes/loader.php';
+
 
 class Helper
 {
@@ -53,7 +53,7 @@ function checkRole($email)
         return false;
     }
 }
-
+}
 
 
 
