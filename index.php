@@ -22,7 +22,7 @@
         //guarda el usuario en Json con saveUser()
         saveUser($usuario);
         //y redirigime a Login (NUNCA directo al perfil)
-        redirect('login.php');
+        Helper::redirect('login.php');
     }
     }
 ?>

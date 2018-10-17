@@ -2,20 +2,18 @@
 
 require 'Classes/loader.php';
 
-if(check()) {
-    redirect('perfil.php');
+if(Helper::check()) {
+    Helper::redirect('perfil.php');
 }
 
 if($_POST) {
     $user = DB::emailSearch($_POST['email']);
     if($user !== null) {
-        var_dump($_POST['password']);
-        var_dump($user->getPassword());
-        dd(password_verify($_POST['password'], $user->getPassword()));
+        // Helper::dd($user);
         if(password_verify($_POST['password'], $user->getPassword())) {
             Auth::login($user);
 
-            redirect('perfil.php');
+            Helper::redirect('perfil.php');
         } else {
             $passwordError = true;
         } 

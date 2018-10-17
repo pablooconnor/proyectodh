@@ -2,7 +2,7 @@
 require 'Classes/loader.php';
 
 if(Auth::check()) {
-    redirect('perfil.php'); // hay que crearlo
+    Helper::redirect('perfil.php'); // hay que crearlo
 }
 
 if($_POST) {
@@ -29,7 +29,7 @@ if($_POST) {
         //guarda el usuario en Json con saveUser()
         DB::saveUser($user);
         //y redirigime a Login (NUNCA directo al perfil)
-        redirect('login.php');
+        Helper::redirect('login.php');
     }
 }
    
@@ -54,7 +54,7 @@ if($_POST) {
                 <h3>Ya tienes cuenta? <a href="login.php">Iniciar sesión.</a></h3>
                 <div class="form-flex">  
                     <label class="label" >Nombre de usuario</label> 
-                    <input class="textfield" type="text" name= "username" value="<?=isset($errors['username']) ? "" : old('username'); ?>" placeholder="Nombre de usuario" >
+                    <input class="textfield" type="text" name="username" value="<?=isset($errors['username']) ? "" : Helper::old('username'); ?>" placeholder="Nombre de usuario" >
 
                     <?php if(isset($errors['username'])): ?>
                         <div class="alert alert-danger">
@@ -63,7 +63,7 @@ if($_POST) {
                     <?php endif;?> 
 
                     <label class="label">Correo Electrónico</label>
-                    <input class="textfield" type="text" name="email" value="<?=isset($errors['email']) ? "" : old('email'); ?><?=isset($_GET['email']) ? $_GET['email'] : "" ;?>" placeholder="user@email.com" >
+                    <input class="textfield" type="text" name="email" value="<?=isset($errors['email']) ? "" : Helper::old('email'); ?><?=isset($_GET['email']) ? $_GET['email'] : "" ;?>" placeholder="user@email.com" >
 
                     <?php if(isset($errors['email'])): ?>
                         <div class="alert alert-danger">
@@ -93,7 +93,7 @@ if($_POST) {
                     <input type="file" name="avatar">
 
                     <label class="label">Provincia:</label>
-                    <select class="selection" name="provincia" value="<?=isset($errors['provincia']) ? "" : old('provincia'); ?>">
+                    <select class="selection" name="provincia" value="<?=isset($errors['provincia']) ? "" : Helper::old('provincia'); ?>">
                         <option class="selection" name="provincia" value="" selected hidden disabled>Seleccione su provincia:</option>
                         <option class="selection" name="provincia" value="C.A.B.A.">C.A.B.A.</option> 
                         <option class="selection" name="provincia" value="Buenos Aires">Buenos Aires</option> 
@@ -128,7 +128,7 @@ if($_POST) {
                     <?php endif;?> 
 
                     <label class="label">Dirección</label>
-                    <input class="textfield" type= "text" name="direccion"  value="<?=isset($errors['direccion']) ? "" : old('direccion'); ?>" >
+                    <input class="textfield" type= "text" name="direccion"  value="<?=isset($errors['direccion']) ? "" : Helper::old('direccion'); ?>" >
 
                     <?php if(isset($errors['direccion'])): ?>
                         <div class="alert alert-danger">

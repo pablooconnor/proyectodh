@@ -2,4 +2,4 @@
 
 require 'Classes/loader.php';
 
-logout();
+Auth::logout();

@@ -20,12 +20,12 @@ class Auth{
         }
     }
 
-    function logout(){ 
+    public static function logout(){ 
         if (!isset($_SESSION)){
             session_start();
         }
         session_destroy();
         setcookie('email', null, time() -1);
-        redirect('index.php');
+        Helper::redirect('index.php');
     }
 }

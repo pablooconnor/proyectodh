@@ -1,16 +1,16 @@
 <?php
 require 'Classes/loader.php';
 
-if(checkRole($_SESSION['email']) == false) {
-    redirect('perfil.php');
+if(Helper::checkRole($_SESSION['email']) == false) {
+    Helper::redirect('perfil.php');
 }
 
 $users = dbConnect();
 
 if(isset($_GET['id'])){
     $userId = $_GET['id'];
-    deleteUser($userId);
-    redirect('backend.php');
+    DB::deleteUser($userId);
+    Helper::redirect('backend.php');
 }
     
 ?>
@@ -32,7 +32,7 @@ if(isset($_GET['id'])){
         <h3>Hay un total de <?=count($users)?> usuarios.</h3>
         <ul class="userslist">
             <?php foreach($users as $user):?>
-            <li><a href="?id=<?=$user['id'];?>"><i class="icon ion-md-trash"></i> <?=$user['email']?></a></li>
+            <li><a href="?id=<?=$user->getId();?>"><i class="icon ion-md-trash"></i> <?=$user->getEmail()?></a></li>
             <?php endforeach;?>
     </ul>
     </div>

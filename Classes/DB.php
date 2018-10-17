@@ -18,7 +18,7 @@ class DB{
     }
 
     // Busqueda x email
-    public static function emailSearch($email):User
+    public static function emailSearch($email)
     {
         // Donde buscamos x email a un usuario? En el array que genera la conexion emulada!
         $users = self::dbConnect();
@@ -29,7 +29,6 @@ class DB{
                 if($user['email'] === $email) {
                     // Devolveme el $user
                     $userObject = new User($user, $user['avatar'], false);
-                    
                     return $userObject;
                 }
             }

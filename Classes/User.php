@@ -10,6 +10,7 @@ class User
     private $direccion;
     private $password;
     private $avatar;
+    private $role = 1;
     
 
     // public function __construct(String $username, String $email, String $sexo, String $direccion, String $provincia, String $password) 
@@ -104,6 +105,14 @@ class User
         $this->avatar = $avatar;
     }
 
+    public function getRole(){
+        return $this->role;
+    }
+
+    public function setRole(Int $role){
+        $this->role = $role;
+    }
+
     public function toJson(){
         return json_encode(array(
             'id' => $this->id,
@@ -120,11 +129,9 @@ class User
 
     private function hashPassword($password, $newUser = false){
         if($newUser){
-            dd("HASHEO");
             return password_hash($password, PASSWORD_DEFAULT);
         } else {
-            dd("DEVUELVE DE JSON");
-            return $this->password;
+            return $password;
         }
     }
 }
