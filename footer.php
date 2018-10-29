@@ -10,7 +10,7 @@
     <ul class="footerNav">
         <li><a href="index.php"><i class="icon ion-md-arrow-dropright-circle"></i> Inicio</i></a></li>
         <li><a href="login.php"><i class="icon ion-md-arrow-dropright-circle"></i> Iniciar sesión</a></li>
-        <li><a href="formulario.php"><i class="icon ion-md-arrow-dropright-circle"></i> Registrarse</a></li>
+        <li><a href="registro.php"><i class="icon ion-md-arrow-dropright-circle"></i> Registrarse</a></li>
         <li><a href="faq.php"><i class="icon ion-md-arrow-dropright-circle"></i> F.A.Q</a></li>
     </ul>
     <ul class="footerInfo">

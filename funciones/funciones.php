@@ -2,7 +2,7 @@
 
 session_start();
 require 'helpers.php';
-require 'Classes/loader.php';
+require 'loader.php';
 
 // function login($user)
 // {

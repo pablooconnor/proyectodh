@@ -1,6 +1,6 @@
 <?php
 
-require 'Classes/loader.php';
+require 'loader.php';
 
 if(Helper::check()) {
     Helper::redirect('perfil.php');
@@ -45,7 +45,7 @@ if($_POST) {
                     <input class="textfield"  placeholder="Ingresar email" value="<?php if(isset($_COOKIE["email"])) { echo $_COOKIE["email"]; } ?>" name="email" required>
                     <?php if(isset($emailError)): ?>
                         <div class="alert alert-danger">
-                            <strong><?="Este email no esta asociado a una cuenta, "; ?><a href="formulario.php?email=<?=$_POST["email"]?>">registrese con este correo.</a></strong>
+                            <strong><?="Este email no esta asociado a una cuenta, "; ?><a href="registro.php?email=<?=$_POST["email"]?>">registrese con este correo.</a></strong>
                         </div>
                     <?php endif;?>
                     <label class="label"><b>Contraseña</b></label>

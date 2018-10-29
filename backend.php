@@ -1,5 +1,5 @@
 <?php
-require 'Classes/loader.php';
+require 'loader.php';
 
 if(Helper::checkRole($_SESSION['email']) == false) {
     Helper::redirect('perfil.php');

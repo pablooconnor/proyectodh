@@ -13,26 +13,21 @@ class User
     private $role = 1;
     
 
-    // public function __construct(String $username, String $email, String $sexo, String $direccion, String $provincia, String $password) 
-    // {
-        // $this->id = Validate::idGenerate();
-        // $this->username = $username;
-        // $this->email = $email;
-        // $this->sexo = $sexo;
-        // $this->direccion = $direccion;
-        // $this->provincia =$provincia;
-        // $this->password = $this->hashPassword($password);
-    // }
-
-    public function __construct($data, $avatar = "", bool $newUser = true){
+    public function __construct(String $username, String $email, String $sexo, String $direccion, String $provincia, String $password, $avatar = "") 
+    {
         $this->id = Validate::idGenerate();
-        $this->username = $data['username'];
-        $this->email = $data['email'];
-        $this->sexo = $data['sexo'];
-        $this->direccion = $data['direccion'];
-        $this->provincia =$data['provincia'];
-        $this->password = $this->hashPassword($data['password'], $newUser);
+        $this->username = $username;
+        $this->email = $email;
+        $this->sexo = $sexo;
+        $this->direccion = $direccion;
+        $this->provincia =$provincia;
         $this->avatar = $avatar;
+        $this->password = $this->hashPassword($password);
+    }
+
+    public function getId(): Int
+    {
+        return $this->id;
     }
 
     public function getUsername(): String
@@ -113,19 +108,19 @@ class User
         $this->role = $role;
     }
 
-    public function toJson(){
-        return json_encode(array(
-            'id' => $this->id,
-            'username' => $this->username,
-            'email' => $this->email,
-            'sexo' => $this->sexo,
-            'direccion' => $this->direccion,
-            'provincia' => $this->provincia,
-            'password' => $this->password,
-            'role' => 1,
-            'avatar' => $this->avatar
-        ));
-    }
+    // public function toJson(){
+    //     return json_encode(array(
+    //         'id' => $this->id,
+    //         'username' => $this->username,
+    //         'email' => $this->email,
+    //         'sexo' => $this->sexo,
+    //         'direccion' => $this->direccion,
+    //         'provincia' => $this->provincia,
+    //         'password' => $this->password,
+    //         'role' => 1,
+    //         'avatar' => $this->avatar
+    //     ));
+    // }
 
     private function hashPassword($password, $newUser = false){
         if($newUser){

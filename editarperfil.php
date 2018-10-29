@@ -1,5 +1,5 @@
 <?php
-require 'Classes/loader.php';
+require 'loader.php';
 
 if($_POST) {
     // A la variable $errors asignale lo que de como resultado la funcion validate() que procese $_POST
@@ -21,9 +21,9 @@ if($_POST) {
     //si count() de $errors es == a 0
     if(count($errors) == 0) {  
         //guarda el usuario en Json con saveUser()
-        saveUser($usuario);
+        DB::saveUser($usuario);
         //y redirigime a Login (NUNCA directo al perfil)
-        redirect('login.php');
+        Helper::redirect('login.php');
     }
 }
    

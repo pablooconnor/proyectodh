@@ -1,5 +1,5 @@
 <?php
-    require 'Classes/loader.php';
+    require 'loader.php';
 ?>
 
 <!DOCTYPE html>

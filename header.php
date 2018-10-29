@@ -21,7 +21,7 @@
             <a href="index.php">Inicio</a>
             <?php if(Auth::guest()):?>
                 <a href="login.php">Iniciar sesion</a>
-                <a href="formulario.php">Registro</a>
+                <a href="registro.php">Registro</a>
             <?php endif;?>
             <a href="faq.php">F.A.Q.</a>
             <?php if(Auth::check()):?>

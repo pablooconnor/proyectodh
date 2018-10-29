@@ -1,8 +1,8 @@
 <?php
-    require 'Classes/loader.php';
+    require 'loader.php';
 
     if(Helper::guest()) {
-        Helper::redirect('formulario.php');
+        Helper::redirect('registro.php');
     }
     // si me llega una $_SESSION con la key 'email' seteada...
     if(isset($_SESSION['email'])) {

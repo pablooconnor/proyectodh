@@ -2,7 +2,7 @@
 
 class Validate
 {
-    public static function registerValidate($data){
+    public static function registerValidate($data, $db){
         $errors = [];
         
         $username = trim($data['username']);
@@ -11,9 +11,9 @@ class Validate
         }
 
         $email = trim($data['email']);
-        $emailExists = DB::emailSearch($email);
+        $emailExists = Query::emailSearch($email, $db, 'users');
 
-        if($emailExists === null){
+        if(empty($emailExists)){
             if($email == "") {
                 $errors['email'] = "Por favor colocar el email";
             } elseif(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
