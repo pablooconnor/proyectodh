@@ -22,7 +22,7 @@ class User
         $this->direccion = $direccion;
         $this->provincia =$provincia;
         $this->avatar = $avatar;
-        $this->password = $this->hashPassword($password);
+        $this->password = $password;
     }
 
     public function getId(): Int
@@ -122,12 +122,8 @@ class User
     //     ));
     // }
 
-    private function hashPassword($password, $newUser = false){
-        if($newUser){
-            return password_hash($password, PASSWORD_DEFAULT);
-        } else {
-            return $password;
-        }
-    }
+    // private function hashPassword($password){
+    //     return password_hash($password, PASSWORD_DEFAULT);
+    // }
 }
 ?>

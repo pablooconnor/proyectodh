@@ -37,10 +37,10 @@ class Helper
     }
 
     // check de rol, 7 es admin, todos los usuarios que se registran en mi sistema vienen con 1 por defecto
-    public static function checkRole($email)
+    public static function checkRole($email, $db)
     {
         // a la variable $user le asigno lo que me devuelva la busqueda por mail
-        $user = DB::emailSearch($email);
+        $user = Query::emailSearch($email, $db, 'users');
         // SI el rol del $user es 7
         if($user->getRole() == 7) {
             //dame TRUE

@@ -7,7 +7,7 @@
     // si me llega una $_SESSION con la key 'email' seteada...
     if(isset($_SESSION['email'])) {
         // buscame el usuario por mail y guardalo en $user (necesitamos usar los otros datos y solamente tenemos el email guardado en session!)
-        $user = DB::emailSearch($_SESSION['email']);
+        $user = Query::emailSearch($_SESSION['email'], $db, 'users');
         // asigname a $username el nombre de usuario
         $username = $user->getUsername();
         // Si tiene una foto de perfil, va a tener una key 'avatar' seteada...
@@ -67,7 +67,7 @@
                         <div class="button-container">
                             <button type="submit"><a href="editarperfil.php">Editar</button>
                             <button type="submit" ><a href="logout.php">Logout</a></button>
-                            <?php if(Helper::checkRole($_SESSION['email']) == true): ?>
+                            <?php if(Helper::checkRole($_SESSION['email'], $db) == true): ?>
                             <button type=""><a class="nav-link" href="backend.php">Administrar</a></button>
                             <?php endif; ?>
                             <?php // mail: admin@gmail.com password:123456 roll:7 ?>

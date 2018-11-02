@@ -16,47 +16,23 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `posts`
+-- Dumping data for table `posts`
 --
 
-DROP TABLE IF EXISTS `posts`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `posts` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `title` varchar(45) NOT NULL,
-  `description` varchar(250) NOT NULL,
-  `photo` varchar(45) DEFAULT NULL,
-  `user_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-/*!40101 SET character_set_client = @saved_cs_client */;
+LOCK TABLES `posts` WRITE;
+/*!40000 ALTER TABLE `posts` DISABLE KEYS */;
+/*!40000 ALTER TABLE `posts` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
--- Table structure for table `users`
+-- Dumping data for table `users`
 --
 
-DROP TABLE IF EXISTS `users`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `users` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `username` varchar(45) NOT NULL,
-  `email` varchar(45) NOT NULL,
-  `sexo` tinyint(1) NOT NULL,
-  `provincia` varchar(45) NOT NULL,
-  `direccion` varchar(45) NOT NULL,
-  `password` varchar(45) NOT NULL,
-  `avatar` varchar(45) DEFAULT NULL,
-  `role` tinyint(1) NOT NULL DEFAULT '1',
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `id_UNIQUE` (`id`),
-  UNIQUE KEY `username_UNIQUE` (`username`),
-  UNIQUE KEY `email_UNIQUE` (`email`),
-  UNIQUE KEY `avatar_UNIQUE` (`avatar`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4;
-/*!40101 SET character_set_client = @saved_cs_client */;
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (1,'admin','admin@gmail.com',0,'Chubut','Calle Falsa 123','123456',NULL,7),(2,'ASd2','asdasd@gmail.com',1,'Buenos Aires','asdasd 123','qwe123123',NULL,1),(5,'ASd22','asdasdasd@gmail.com',1,'Buenos Aires','asdasd 123','qwe123123',NULL,1),(6,'asdasdasd','asldkjas@asldkjas.com',0,'Chaco','daslkdas','asdasd',NULL,1),(7,'asdlkjasasdlkj','asldkjasd@alsdkjaslkdj.com',0,'Catamarca','aslkdjasd','asdasd','perfilasdlkjasasdlkj.JPG',1),(9,'asdasdasdasadsdasadsdas','dlaksjdalskjdaslkj@aklndaslkjdaslk.com',0,'Chaco','laksjdasdlkj','asdasd','',1),(10,'asdasdalkjdasd','aslkdjasd@aslkdjdasd.com',0,'C.A.B.A.','aslkdjas','asdasd',NULL,1),(11,'adsldkasjdaslk','asd@asd.com',0,'Buenos Aires','lkasjd','asdasd',NULL,1),(12,'asdkasjdh','asd22@asd.com',0,'C.A.B.A.','asdasd','$2y$10$HsLAdRrK0FuwLJts3Z3ZTurLxWZSU8AJ4yqc4N8GjFn24nnMdYYhu','perfilasdkasjdh.png',1);
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -67,4 +43,4 @@ CREATE TABLE `users` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-11-02 10:36:23
+-- Dump completed on 2018-11-02 11:09:54

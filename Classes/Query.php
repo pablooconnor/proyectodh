@@ -54,6 +54,11 @@ class Query{
 
         $resultado = $query->fetchAll(PDO::FETCH_ASSOC);
         
+        if($resultado != null){
+            $resultado = $resultado[0];
+            return new User($resultado['username'], $resultado['email'], $resultado['sexo'], $resultado['direccion'], $resultado['provincia'], $resultado['password'], $resultado['avatar']);
+        }
+
         return $resultado;
     }
 }

@@ -7,7 +7,7 @@ if(Helper::check()) {
 }
 
 if($_POST) {
-    $user = DB::emailSearch($_POST['email']);
+    $user = Query::emailSearch($_POST['email'], $db, 'users');
     if($user !== null) {
         // Helper::dd($user);
         if(password_verify($_POST['password'], $user->getPassword())) {
