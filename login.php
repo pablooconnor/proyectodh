@@ -59,11 +59,11 @@ if($_POST) {
             <form class="form" action="" method="post">
                 <h2>Inicia sesion</h2>
                 <div class="form-flex">
-                    <label class="label" ><b>Email</b></label>
+                    <label class="label" ><b>Usuario o Email</b></label>
                     <input class="textfield"  placeholder="Ingresar email" value="<?php if(isset($_COOKIE["email"])) { echo $_COOKIE["email"]; } ?>" name="user" required>
                     <?php if(isset($emailError)): ?>
                         <div class="alert alert-danger">
-                            <strong>Este email o usuario no esta registrado en una cuenta</strong>
+                            <strong>Este usuario o email no esta registrado en una cuenta. <a href="registro.php">Registrarse</a></strong>
                         </div>
                     <?php endif;?>
                     <label class="label"><b>Contraseña</b></label>
