@@ -1,17 +1,17 @@
 <?php
 require 'loader.php';
 
-if(Helper::checkRole($_SESSION['email']) == false) {
+if(Helper::checkRole(($_SESSION['email']) == false, $db)) {
     Helper::redirect('perfil.php');
 }
 
-$users = dbConnect();
+$users = Query::index('users', $db);
 
-if(isset($_GET['id'])){
-    $userId = $_GET['id'];
-    DB::deleteUser($userId);
-    Helper::redirect('backend.php');
-}
+// if(isset($_GET['id'])){
+//     $userId = $_GET['id'];
+//     DB::deleteUser($userId);
+//     Helper::redirect('backend.php');
+// }
     
 ?>
 
@@ -32,7 +32,7 @@ if(isset($_GET['id'])){
         <h3>Hay un total de <?=count($users)?> usuarios.</h3>
         <ul class="userslist">
             <?php foreach($users as $user):?>
-            <li><a href="?id=<?=$user->getId();?>"><i class="icon ion-md-trash"></i> <?=$user->getEmail()?></a></li>
+            <li><a href="?id=<?=$user->getId();?>. "><i class="icon ion-md-trash"></i>Usuario: <?=$user->getUsername()?> - Email: <?=$user->getEmail()?></a></li>
             <?php endforeach;?>
     </ul>
     </div>

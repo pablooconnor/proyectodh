@@ -41,13 +41,16 @@ class Helper
     {
         // a la variable $user le asigno lo que me devuelva la busqueda por mail
         $user = Query::emailSearch($email, $db, 'users');
-        // SI el rol del $user es 7
-        if($user->getRole() == 7) {
-            //dame TRUE
-            return true;
-        } else {
-            //cualquier otra cosa, dame FALSE
-            return false;
+        
+        if($user !== false){
+            // SI el rol del $user es 7
+            if($user->getRole() == 7) {
+                //dame TRUE
+                return true;
+            } else {
+                //cualquier otra cosa, dame FALSE
+                return false;
+            }
         }
     }
 }

@@ -6,14 +6,29 @@ class Validate
         $errors = [];
         
         $username = trim($data['username']);
-        if($username == ""){
-            $errors['username'] = "Por favor completar el nombre de usuario.";
+        $usernameExists = Query::usernameSearch($username, $db, 'users');
+        
+        if($usernameExists == false){
+            if($username == ""){
+                $errors['username'] = "Por favor completar el nombre de usuario.";
+            }
+            if (!ctype_alnum($username)) {
+                $errors['username'] = "Por favor ingresar solo caracteres alfanumericos.";
+            }
+        } else {
+            $errors['username'] = "Este nombre de usuario ya se encuentra en uso.";
         }
+
+         $min = 3;
+         $max = 20;
+         if((strlen($username) > $max) || (strlen($username) < $min)) {
+             $errors['username'] = "Por favor el nombre de usuario no debe tener entre ". $min ." y ". $max ." caracteres.";
+         }
 
         $email = trim($data['email']);
         $emailExists = Query::emailSearch($email, $db, 'users');
 
-        if(empty($emailExists)){
+        if($emailExists == false){
             if($email == "") {
                 $errors['email'] = "Por favor colocar el email";
             } elseif(!filter_var($email, FILTER_VALIDATE_EMAIL)) {

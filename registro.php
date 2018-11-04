@@ -26,7 +26,7 @@ if($_POST) {
         //CREAR OBJETO USUARIO
         $avatarPath = (isset($avatarPath)) ? $avatarPath : "";
         $sexo = ($_POST['sexo'] == 'masculino') ? 0 : 1;
-        $user = new User($_POST['username'], $_POST['email'], $sexo, $_POST['direccion'], $_POST['provincia'], password_hash($_POST['password'], PASSWORD_DEFAULT), $avatarPath);
+        $user = new User(trim($_POST['username']), trim($_POST['email']), $sexo, trim($_POST['direccion']), trim($_POST['provincia']), password_hash(trim($_POST['password']), PASSWORD_DEFAULT), $avatarPath);
         //guarda el usuario en Json con saveUser()
         Query::insertUser($db, 'users', $user);
         //y redirigime a Login (NUNCA directo al perfil)

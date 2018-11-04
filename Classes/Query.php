@@ -52,10 +52,28 @@ class Query{
         $query = $db->prepare("SELECT * FROM $tabla where email='$email'");
         $query->execute();
 
-        $resultado = $query->fetchAll(PDO::FETCH_ASSOC);
+        $resultado = $query->fetch(PDO::FETCH_ASSOC);
         
-        if($resultado != null){
-            $resultado = $resultado[0];
+        
+        if($resultado !== false){
+            // $resultado = $resultado[0];
+            return new User($resultado['username'], $resultado['email'], $resultado['sexo'], $resultado['direccion'], $resultado['provincia'], $resultado['password'], $resultado['avatar']);
+        }
+
+        return $resultado;
+    }
+
+    // // Busqueda x username
+    public static function usernameSearch($username, $db, $tabla)
+    {
+        $query = $db->prepare("SELECT * FROM $tabla where username='$username'");
+        $query->execute();
+
+        $resultado = $query->fetch(PDO::FETCH_ASSOC);
+        
+        
+        if($resultado !== false){
+            // $resultado = $resultado[0];
             return new User($resultado['username'], $resultado['email'], $resultado['sexo'], $resultado['direccion'], $resultado['provincia'], $resultado['password'], $resultado['avatar']);
         }
 

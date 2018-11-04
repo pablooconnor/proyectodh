@@ -7,18 +7,36 @@ if(Helper::check()) {
 }
 
 if($_POST) {
-    $user = Query::emailSearch($_POST['email'], $db, 'users');
-    if($user !== null) {
-        // Helper::dd($user);
-        if(password_verify($_POST['password'], $user->getPassword())) {
-            Auth::login($user);
+    // echo '<pre>';
+    // var_dump(stripos($_POST['user'], '@'));
+    // echo '</pre>';
+    // exit;
+    if(stripos($_POST['user'], '@')){
+        $user = Query::emailSearch($_POST['user'], $db, 'users');
+        if($user !== false) {
+            if(password_verify($_POST['password'], $user->getPassword())) {
+                Auth::login($user);
 
-            Helper::redirect('perfil.php');
+                Helper::redirect('perfil.php');
+            } else {
+                $passwordError = true;
+            } 
         } else {
-            $passwordError = true;
-        } 
+            $emailError = true;
+        }
     } else {
-        $emailError = true;
+        $user = Query::usernameSearch($_POST['user'], $db, 'users');
+        if($user !== false) {
+            if(password_verify($_POST['password'], $user->getPassword())) {
+                Auth::login($user);
+
+                Helper::redirect('perfil.php');
+            } else {
+                $passwordError = true;
+            } 
+        } else {
+            $emailError = true;
+        }
     }
 }
         
@@ -42,10 +60,10 @@ if($_POST) {
                 <h2>Inicia sesion</h2>
                 <div class="form-flex">
                     <label class="label" ><b>Email</b></label>
-                    <input class="textfield"  placeholder="Ingresar email" value="<?php if(isset($_COOKIE["email"])) { echo $_COOKIE["email"]; } ?>" name="email" required>
+                    <input class="textfield"  placeholder="Ingresar email" value="<?php if(isset($_COOKIE["email"])) { echo $_COOKIE["email"]; } ?>" name="user" required>
                     <?php if(isset($emailError)): ?>
                         <div class="alert alert-danger">
-                            <strong><?="Este email no esta asociado a una cuenta, "; ?><a href="registro.php?email=<?=$_POST["email"]?>">registrese con este correo.</a></strong>
+                            <strong>Este email o usuario no esta registrado en una cuenta</strong>
                         </div>
                     <?php endif;?>
                     <label class="label"><b>Contraseña</b></label>
